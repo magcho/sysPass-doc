@@ -5,7 +5,7 @@ sysPass Documentation. Japanese translation.
 
 ```
 git clone -b translation_review git@github.com:magcho/sysPass-doc.git
-cd docs/build
+cd sysPass-doc/docs/build
 python -m http.server 3000
 ```
 
