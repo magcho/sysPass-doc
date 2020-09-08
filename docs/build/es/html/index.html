@@ -1,0 +1,326 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; documentación de sysPass - 3.1.2</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Installation" href="installing/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installing/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application/index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updating/index.html">Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Preguntas Frecuentes</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>sysPass is a password management system written in PHP that allows a centralized and collaborative passwords management.</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Encrypted passwords using AES-256 CTR</p></li>
+<li><p>Interface based on Material Design Lite with HTML5 and AJAX</p></li>
+<li><p>Multiuser with users, groups and profiles management</p></li>
+<li><p>Advanced profile management with 29 access levels</p></li>
+<li><p>MySQL/MariaDB, OpenLDAP and Active Directory authentication</p></li>
+<li><p>Activity notifications by email and in-app</p></li>
+<li><p>Public links to accounts without login</p></li>
+<li><p>Accounts changes history and restore points</p></li>
+<li><p>Accounts associated files management with images preview</p></li>
+<li><p>Multilanguage</p></li>
+<li><p>Portable backup format and export to encrypted XML</p></li>
+<li><p>Actions and events audit with the ability to send messages to a remote Syslog in CEF format</p></li>
+<li><p>API for integrating with other applications</p></li>
+<li><p>Import from KeePass and CSV</p></li>
+<li><p>One step installation</p></li>
+</ul>
+</div>
+<div class="section" id="what-syspass-does-not-do">
+<h2>What sysPass does not do<a class="headerlink" href="#what-syspass-does-not-do" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>It does not store any <strong>UNencrypted</strong> keys in the server</p></li>
+<li><p>It does not send any data to an external service</p></li>
+<li><p>It does not encrypt the accounts” password individually, it uses a key protected by global master password for all instead</p></li>
+<li><p>It does not perform password changes on the servers</p></li>
+<li><p>It does not encrypt the accounts” data, only the password, custom fields” and plugins” data, because you wouldn’t be able to perform searches</p></li>
+<li><p>It isn’t like APT: doesn’t have Super Cow Powers!!</p></li>
+</ul>
+<div class="toctree-wrapper compound" id="mastertoc">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing/debian9.html">Debian 9 Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing/centos7.html">CentOS 7.x Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing/docker.html">Docker Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing/hostingmode.html">Hosting Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/index.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/ldap.html">Configuración de LDAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/apache.html">Apache Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application/index.html">Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application/encryption.html">Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/encryption.html#diagrams">Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/authorization.html">Authorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/searching.html">Accounts Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/backup.html">Backup Strategies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="updating/index.html">Updating</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="updating/strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updating/v2_1.html">Versión 2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updating/v3.html">3.0 Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updating/v3.1.html">3.1 Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howtos/index.html">HOWTOs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howtos/upgrade.html">Cómo probar una actualización de sysPass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtos/restore.html">How to restore sysPass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtos/azure_mysql.html">Azure MySQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtos/nginx.html">How to install and configure Nginx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtos/ldap_troubleshooting.html">LDAP Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Preguntas Frecuentes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirve-syspass">¿Para qué sirve sysPass?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#donde-se-puede-instalar-syspass">¿Dónde se puede instalar sysPass?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#como-se-instala-syspass">¿Cómo se instala sysPass?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#que-metodos-de-autentificacion-utiliza">¿Qué métodos de autentificación utiliza?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirve-la-encriptacion">¿Para qué sirve la encriptación?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#que-quiere-decir-portable">¿Qué quiere decir “portable”?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#hay-una-clave-maestra-por-cada-cuenta-usuario">¿Hay una clave maestra por cada cuenta/usuario?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#que-son-los-enlaces-a-wiki">¿Qué son los enlaces a Wiki?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirven-las-categorias">¿Para qué sirven las categorías?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirven-los-grupos-de-usuarios">¿Para qué sirven los grupos de usuarios?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirve-el-campo-cliente">¿Para qué sirve el campo cliente?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#existe-un-historico-de-cuentas">¿Existe un histórico de cuentas?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirven-los-perfiles">¿Para qué sirven los perfiles?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#que-es-el-modo-mantenimiento">¿Qué es el modo mantenimiento?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#puedo-cambiar-la-clave-maestra">¿Puedo cambiar la Clave Maestra?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#no-recuerdo-la-clave-maestra-puedo-desencriptar-las-claves">No recuerdo la Clave Maestra, ¿Puedo desencriptar las claves?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#funciona-el-backup-en-windows">¿Funciona el backup en Windows?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#el-lenguaje-no-cambia">El lenguaje no cambia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-are-these-strange-characters-in-password-fields">What are these strange characters in password fields?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installing/index.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        Actualizado por última vez en sept. 06, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

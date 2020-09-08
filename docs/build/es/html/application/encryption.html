@@ -1,0 +1,320 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Encryption &mdash; documentación de sysPass - 3.1.2</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Security" href="security.html" />
+    <link rel="prev" title="Application" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Application</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Encryption</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#temporary-master-key">Temporary Master Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pki-rsa">PKI-RSA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#diagrams">Diagrams</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#login-process">Login Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#master-password-process">Master Password Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temporary-master-key-process">Temporary Master Key Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pki-process">PKI Process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html">Authorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html">Accounts Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">Backup Strategies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Preguntas Frecuentes</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Application</a> &raquo;</li>
+        
+      <li>Encryption</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/application/encryption.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="encryption">
+<h1>Encryption<a class="headerlink" href="#encryption" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>If you already use a sysPass version <strong>&lt;= 2.0</strong>, it’s advisable to update to 2.1 version and then to 3.1, in order to use the new security improvements on the encryption mechanisms (CVE-2017-5999). Please see <a class="reference internal" href="../updating/index.html"><span class="doc">Updating</span></a> for upgrading details.</p>
+</div>
+<p>sysPass encryption is based on <a class="reference external" href="http://es.wikipedia.org/wiki/Advanced_Encryption_Standard">AES-256</a>  in <a class="reference external" href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_.28CTR.29">CTR</a> mode by using PHP’s <a class="reference external" href="http://php.net/manual/en/book.openssl.php">OpenSSL</a> module. It uses the <a class="reference external" href="https://github.com/defuse/php-encryption/blob/master/docs/CryptoDetails.md">Defuse/php-encryption</a> library for the encryption modules and functions management.</p>
+<p>The encrypted data (up to 3.1 version) are:</p>
+<ul class="simple">
+<li><p>Accounts” passwords (always)</p></li>
+<li><p>Accounts” public links (always)</p></li>
+<li><p>Custom fields” data (if set)</p></li>
+<li><p>Plugins” data</p></li>
+<li><p>sysPass XML format export (if set)</p></li>
+<li><p>PHP’s session data (if set)</p></li>
+</ul>
+<p>In order to use the application, for every user first login, either a master password or a temporary master key (see <a class="reference internal" href="#temporarymasterkey"><span class="std std-ref">Temporary Master Key</span></a>) will be needed. That is so because the master password is not stored in the web server but a a generated <a class="reference external" href="`https://en.wikipedia.org/wiki/Blowfish_(cipher)`">Blowfish</a> hash is saved in order to check if the user is using the correct master password.</p>
+<p>After logging in with the master password, it’s encrypted and stored within the user’s data in the database. The encryption key is generated using a derived key from user’s password and login, and a secure random salt generated by <a class="reference external" href="http://php.net/manual/en/function.openssl-random-pseudo-bytes.php">openssl_random_pseudo_bytes</a> (stored in «…/app/config/config.xml» file).</p>
+<p>On next user logins the master password is got from the user’s data and decrypted by using the derived key. After this, the master password is encrypted again for storing it in the user’s PHP session, so every time the master password is needed it must be decrypted using a session-based generated key. This key is regenerated every 120 seconds.</p>
+<p>The master password will be prompted again if:</p>
+<ul class="simple">
+<li><p>The user changes either its login password or username. The previous password will be requested.</p></li>
+<li><p>It has been changed by the administrator.</p></li>
+<li><p>The configuration salt is changed.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>A temporary master key (see <a class="reference internal" href="#temporarymasterkey"><span class="std std-ref">Temporary Master Key</span></a>) could be used instead of the real master password</p>
+</div>
+<div class="section" id="temporary-master-key">
+<span id="temporarymasterkey"></span><h2>Temporary Master Key<a class="headerlink" href="#temporary-master-key" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>A temporary master key could be generated to be used by the application users, so it won’t be needed to tell the real master password.</p>
+<p>For the temporary master key generation the real master password is encrypted using a secure key generated by <a class="reference external" href="http://php.net/manual/en/function.openssl-random-pseudo-bytes.php">openssl_random_pseudo_bytes</a>. Then a <a class="reference external" href="`https://en.wikipedia.org/wiki/Blowfish_(cipher)`">Blowfish</a> generated hash of it is stored in the database «&quot;Config&quot; table.» in order to check it when the temporary master key is provided on login.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The real master password is never stored unencrypted. For checking the temporary master key, a <a class="reference external" href="`https://en.wikipedia.org/wiki/Blowfish_(cipher)`">Blowfish</a> generated hash <strong>is only used</strong></p>
+</div>
+</div>
+<div class="section" id="pki-rsa">
+<h2>PKI-RSA<a class="headerlink" href="#pki-rsa" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>In order to improve the security of the sent data, <a class="reference external" href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> (<a class="reference external" href="https://en.wikipedia.org/wiki/Public_key_infrastructure">PKI</a>) is being used for encrypting the passwords that are being sent from the application forms. This prevents to send sensitive date through plain channels.</p>
+<p>Public and private <a class="reference external" href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> keys are generated within the application «…/app/config» directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Data flowing from server to client side is not encrypted unless you run over an HTTPS channel.</p>
+</div>
+</div>
+</div>
+<div class="section" id="diagrams">
+<h1>Diagrams<a class="headerlink" href="#diagrams" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="login-process">
+<h2>Login Process<a class="headerlink" href="#login-process" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<div class="section" id="master-password-process">
+<h2>Master Password Process<a class="headerlink" href="#master-password-process" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<div class="section" id="temporary-master-key-process">
+<h2>Temporary Master Key Process<a class="headerlink" href="#temporary-master-key-process" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<div class="section" id="pki-process">
+<h2>PKI Process<a class="headerlink" href="#pki-process" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Be aware that the highest security risk is in the users themselves, because a compromised password could cause a security leak.</p>
+<p>A sysPass compromised server could be dangerous if the database is placed alongside the web server, because the network data could be sniffed so the passwords would be revealed.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="security.html" class="btn btn-neutral float-right" title="Security" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        Actualizado por última vez en sept. 06, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

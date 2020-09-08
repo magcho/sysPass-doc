@@ -1,0 +1,342 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FAQ &mdash; sysPass 3.1.2 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="prev" title="LDAPのトラブルシューティング" href="howtos/ldap_troubleshooting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installing/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/index.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application/index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updating/index.html">アップデート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirve-syspass">sysPassとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#donde-se-puede-instalar-syspass">sysPassをインストールするには何が必要ですか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#como-se-instala-syspass">sysPassのインストール方法は？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#que-metodos-de-autentificacion-utiliza">認証方式には何を利用できますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirve-la-encriptacion">暗号化とはなんですか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#que-quiere-decir-portable">ポータブルとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hay-una-clave-maestra-por-cada-cuenta-usuario">マスターパスワードはユーザー(アカウント)ごとに違うものが必要ですか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#que-son-los-enlaces-a-wiki">Wikiのリンクはどのように決定されますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirven-las-categorias">カテゴリーとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirven-los-grupos-de-usuarios">グループとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirve-el-campo-cliente">カスタマーフィールドとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#existe-un-historico-de-cuentas">アカウントの変更履歴を保持していますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirven-los-perfiles">プロファイルとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#que-es-el-modo-mantenimiento">メンテナンスモードとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#puedo-cambiar-la-clave-maestra">マスターパスワードを変更することはできますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#no-recuerdo-la-clave-maestra-puedo-desencriptar-las-claves">マスターパスワードを忘れました、再発行することはできますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#funciona-el-backup-en-windows">Windows上にsysPassの環境を作っています、バックアップを取ることはできますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#el-lenguaje-no-cambia">表示言語が変更できません</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-are-these-strange-characters-in-password-fields">パスワードを送信する時の通信に奇妙な文字列が含まれています、これはなんですか？</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>FAQ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/faq.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="preguntas-frecuentes">
+<h1>FAQ<a class="headerlink" href="#preguntas-frecuentes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="para-que-sirve-syspass">
+<h2>sysPassとは？<a class="headerlink" href="#para-que-sirve-syspass" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>sysPassは暗号化して安全にパスワードを保存するパスワードマネージャーです。パスワードの他にカテゴリー・メモ・ファイルなど様々な情報をまとめて管理できます。</p>
+<p>このプロジェクトは個人だけでなくチームで安全にパスワードを管理し、なおかつどこでもパスワードを確認できるようなツールが欲しいと思ったことから開発がスタートしました。</p>
+</div>
+<div class="section" id="donde-se-puede-instalar-syspass">
+<h2>sysPassをインストールするには何が必要ですか？<a class="headerlink" href="#donde-se-puede-instalar-syspass" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Apacheのようなwebサーバ・PHP・MySQLが動作する環境であればいますぐsysPassをインストールすることができます。</p>
+</div>
+<div class="section" id="como-se-instala-syspass">
+<h2>sysPassのインストール方法は？<a class="headerlink" href="#como-se-instala-syspass" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このリンクから <a class="reference external" href="https://github.com/nuxsmin/sysPass/releases/latest">https://github.com/nuxsmin/sysPass/releases/latest</a> 最新版のsysPassをダウンロードできます。インストールの手順は <a class="reference internal" href="installing/index.html"><span class="doc">Installation</span></a> を参照してください</p>
+</div>
+<div class="section" id="que-metodos-de-autentificacion-utiliza">
+<h2>認証方式には何を利用できますか？<a class="headerlink" href="#que-metodos-de-autentificacion-utiliza" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>sysPassではMySQL/MariaDBを用いたデータベース認証の他にLDAPを用いた認証にも対応しています。</p>
+<p>LDAP認証を設定している状態で、もしLDAPサーバへの接続に問題があるとsysPassが判断すると自動的にデータベース認証に切り替わります。</p>
+<p>詳しい情報は <a class="reference internal" href="application/authentication.html"><span class="doc">Authentication(認証)</span></a> を参照してください</p>
+</div>
+<div class="section" id="para-que-sirve-la-encriptacion">
+<h2>暗号化とはなんですか？<a class="headerlink" href="#para-que-sirve-la-encriptacion" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>sysPassはデータベースにパスワードを直接保存することはなく、マスターパスワードを用いて暗号化した状態でデータベースに保存しています。</p>
+<p>この仕組みにより、sysPassをサーバではなくUSBなどのポータブルな環境にインストールしている時に便利です。さて、sysPassが具体的にどのような暗号方式を用いているか気になりませんか？</p>
+<p><a class="reference external" href="http://es.wikipedia.org/wiki/Advanced_Encryption_Standard">sysPassではrijndael-256</a> の <a class="reference external" href="http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation#Cipher-block_chaining_.28CBC.29">CBC</a> モードで暗号化しています。</p>
+<p>もっと詳しく知りたい場合はこちら <a class="reference internal" href="application/encryption.html"><span class="doc">Encryption</span></a> を参照してください</p>
+</div>
+<div class="section" id="que-quiere-decir-portable">
+<h2>ポータブルとは？<a class="headerlink" href="#que-quiere-decir-portable" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>sysPassは完全にPHPとその周辺技術でのみ実装されており、OSに別途パッケージをインストールすつる必要はありません。</p>
+<p>sysPassは一般に <a class="reference external" href="http://es.wikipedia.org/wiki/LAMP">LAMP</a>  と呼ばれるようなApache・PHP・MySQLが動く環境ならどこでもインストールすることができます。なのでWAMPやXAMPPなどのツールを使うことでお使いのPCもしくはUSBドライブなどにもインストールすることができます。</p>
+<p>USBドライブにインストールしている場合は別途ツールを用いてドライブ自体をバックアップすれば完璧なバックアップを取得することもできます。</p>
+</div>
+<div class="section" id="hay-una-clave-maestra-por-cada-cuenta-usuario">
+<h2>マスターパスワードはユーザー(アカウント)ごとに違うものが必要ですか？<a class="headerlink" href="#hay-una-clave-maestra-por-cada-cuenta-usuario" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>いいえ、マスターパスワードはsysPass全体で１つしか存在しません。複数人のユーザーがいる場合はその全員で同じマスターパスワードを使用してください。</p>
+<p>マスターパスワードを変更した際はsysPassを利用している全てのユーザーがその新しいマスターパスワードでログインし直す必要があります。その他、ユーザーのパスワードを変更した際にはそのユーザーだけ再度マスターパスワードの入力が必要です。</p>
+<p>マスターパスワードが変更された後、新しいマスターパスワードを入力しないと保存したアカウントのパスワードを閲覧することができず、アカウントの情報しか閲覧できなくなります。</p>
+<p>もっと詳しく知りたい場合はこちら <a class="reference internal" href="application/encryption.html"><span class="doc">Encryption</span></a> を参照してください</p>
+</div>
+<div class="section" id="que-son-los-enlaces-a-wiki">
+<h2>Wikiのリンクはどのように決定されますか？<a class="headerlink" href="#que-son-los-enlaces-a-wiki" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>URLのパラメーターにユーザー名などの情報を含めたリンクを発行することがあります。</p>
+<p>Wikiのリンクには２種類あり、１つはWikiの検索結果へのリンクです。これは検索条件を表したURLであり、アクセスされた時点の最新の検索結果を表示します。２つ目はWikiのページを表示するURLです。</p>
+</div>
+<div class="section" id="para-que-sirven-las-categorias">
+<h2>カテゴリーとは？<a class="headerlink" href="#para-que-sirven-las-categorias" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アカウントを分類して検索しやすくしたり、管理しやすくするための項目です。</p>
+</div>
+<div class="section" id="para-que-sirven-los-grupos-de-usuarios">
+<h2>グループとは？<a class="headerlink" href="#para-que-sirven-los-grupos-de-usuarios" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ユーザーをまとめて管理するための機能です、保存されているアカウントにアクセスする権限をグループごとに管理すると便利です。１人のユーザが所属できるグループにはprimary groupと secondary groupの２種類があります。</p>
+</div>
+<div class="section" id="para-que-sirve-el-campo-cliente">
+<h2>カスタマーフィールドとは？<a class="headerlink" href="#para-que-sirve-el-campo-cliente" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>カテゴリーと似ている概念でアカウントを検索するときのヒントとして設定できる任意項目です。会社では部門名などを設定すると便利かもしれません。</p>
+<p>将来的にはカスタマーフィールドを用いてユーザーとクライアントを関連づけられるようになる予定です。</p>
+</div>
+<div class="section" id="existe-un-historico-de-cuentas">
+<h2>アカウントの変更履歴を保持していますか？<a class="headerlink" href="#existe-un-historico-de-cuentas" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>もちろんです、アカウントのパスワードを変更しても前のパスワードは全て保存されています。間違えてパスワードを変えてしまったとき、間違えてアカウントを削除してしまった時も安心です。</p>
+<p>アカウントの詳細から履歴を見ることができます。注意するべきことはマスターパスワードを途中で変更した場合です。マスターパスワードの変更前の時に保存したパスワードは履歴に表示されなくなります。</p>
+</div>
+<div class="section" id="para-que-sirven-los-perfiles">
+<h2>プロファイルとは？<a class="headerlink" href="#para-que-sirven-los-perfiles" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロファイルはユーザが行える操作を制限するための権限設定を行うものです。</p>
+<p>現在設定できる権限の項目は29種類あります。</p>
+</div>
+<div class="section" id="que-es-el-modo-mantenimiento">
+<h2>メンテナンスモードとは？<a class="headerlink" href="#que-es-el-modo-mantenimiento" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このモードはsysPassのバックアップ・アップデートを行なっている時にユーザーがログインできないようにするモードです。</p>
+<p>メンテナンスモードの間は、そのモードを有効化する操作をしたユーザーのみがsysPass内で操作ができます。メンテナンスモードを強制的に終了するためには”config/config.xml”ファイルの”maintenance”項目を変更してください。</p>
+</div>
+<div class="section" id="puedo-cambiar-la-clave-maestra">
+<h2>マスターパスワードを変更することはできますか？<a class="headerlink" href="#puedo-cambiar-la-clave-maestra" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>もちろんです、いつでもマスターパスワードを変更することができます。マスターパスワードを変更するとデーターベース内に保存されたアカウント情報を全て再暗号化します、なのでマスターパスワードを変更する前にデータベースのバックアップを取っておくことをおすすめします。</p>
+</div>
+<div class="section" id="no-recuerdo-la-clave-maestra-puedo-desencriptar-las-claves">
+<h2>マスターパスワードを忘れました、再発行することはできますか？<a class="headerlink" href="#no-recuerdo-la-clave-maestra-puedo-desencriptar-las-claves" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>いいえ、マスターパスワードを忘れると再発行できません。マスターパスワードがなければ保存された全てのパスワードを閲覧することができなくなります、注意してください。</p>
+</div>
+<div class="section" id="funciona-el-backup-en-windows">
+<h2>Windows上にsysPassの環境を作っています、バックアップを取ることはできますか？<a class="headerlink" href="#funciona-el-backup-en-windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>もちろんです、PHPファイルとPHARファイル一式をコピーしてバックアップしてください。</p>
+</div>
+<div class="section" id="el-lenguaje-no-cambia">
+<h2>表示言語が変更できません<a class="headerlink" href="#el-lenguaje-no-cambia" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>お使いのサーバーのシステム(OS)に変更したいlocaleが存在するか確認してください。sysPassでは <a class="reference external" href="https://en.wikipedia.org/wiki/Gettext">GNU gettext</a> を用いて多言語対応を行なっているためシステムにlocaleが存在しなければ変更できません。</p>
+<p>インストールするlocaleはUTF-8でないと動作しないことにも注意してください。</p>
+</div>
+<div class="section" id="what-are-these-strange-characters-in-password-fields">
+<h2>パスワードを送信する時の通信に奇妙な文字列が含まれています、これはなんですか？<a class="headerlink" href="#what-are-these-strange-characters-in-password-fields" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>心配しないでください、それはsysPassのセキュリティー強化のための機能の一部で、ブラウザがサーバーにパスワードを送信する前にRSA暗号化を施しているため一見奇妙な文字列になっています。</p>
+<p>もっと詳しく知りたい場合はこちら <a class="reference internal" href="application/encryption.html"><span class="doc">Encryption</span></a> を参照してください</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="howtos/ldap_troubleshooting.html" class="btn btn-neutral float-left" title="LDAPのトラブルシューティング" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        最終更新: 9月 08, 2020
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

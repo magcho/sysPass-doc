@@ -1,0 +1,292 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Strategies &mdash; documentación de sysPass - 3.1.2</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Versión 2.1" href="v2_1.html" />
+    <link rel="prev" title="Updating" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/index.html">Application</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Updating</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Strategies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#normal">Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="v2_1.html">Versión 2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v3.html">3.0 Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v3.1.html">3.1 Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Preguntas Frecuentes</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Updating</a> &raquo;</li>
+        
+      <li>Strategies</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/updating/strategies.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="strategies">
+<h1>Strategies<a class="headerlink" href="#strategies" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Though it has been discussed a few times, I should mention that <strong>sysPass does not provide an automated upgrading method for code files</strong>. This is so because it would imply installing some kind of software libraries like <a class="reference external" href="https://git-scm.com/">Git</a> and develop an UI interface within sysPass that will try to resolve many situations when dealing with CVS repositories (merge, conflicts, etc.).</p>
+<p>Another question is about those installations on <a class="reference external" href="https://docs.docker.com/engine/installation/">Docker</a> or <a class="reference external" href="https://kubernetes.io/">Kubernetes</a>, which don’t rely (philosophically speaking) on such kind on rolling updates based on CVS, since it will break the philosophy of containers: immutable, reproducible, scalable and so on.</p>
+<p>That being said, all-in-one apps are not a great deal for these days, so I think the best way to update is to be performed externally, that is either using <a class="reference external" href="https://git-scm.com/">Git</a> or <a class="reference external" href="https://docs.docker.com/engine/installation/">Docker</a> tagged images (through <a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a>  or <a class="reference external" href="https://helm.sh/">Helm</a>).</p>
+<div class="section" id="normal">
+<h2>Normal<a class="headerlink" href="#normal" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>As described on release upgrading notes</p>
+</div>
+<div class="section" id="id1">
+<h2>Git<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Install <a class="reference external" href="https://git-scm.com/">Git</a>, point your CLI on the webserver root and run the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/nuxsmin/sysPass.git
+</pre></div>
+</div>
+<p>In order to get the latest updates:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The «master» branch on Github holds the most recent stable version</p>
+</div>
+<p>After it, if database changes are required, you’ll need to follow the steps through the web UI</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Perform a full database and application backup using external tools like «mysqldump» and «tar» before updating</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Docker<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>The fine and easy way is installing <a class="reference internal" href="../installing/docker.html#id2"><span class="std std-ref">Docker Compose</span></a> and every new version is released out, you only need to change the image tag on composer’s YAML.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">app</span><span class="p">:</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">syspass-app</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">syspass/syspass:3.1.0</span> <span class="c1"># Set this version tag to desired one</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+<span class="nn">...</span>
+</pre></div>
+</div>
+<p>After changing the version tag, tun the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose -p syspass -f docker-compose.yml up -d
+</pre></div>
+</div>
+<p>It will update the current sysPass container with the new version. If database changes are required, you’ll need to follow the steps through the web UI</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Perform a full database and application backups before updating: <a class="reference internal" href="../application/backup.html"><span class="doc">Backup Strategies</span></a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="v2_1.html" class="btn btn-neutral float-right" title="Versión 2.1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Updating" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        Actualizado por última vez en sept. 06, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Permissions(権限) &mdash; sysPass 3.1.2 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="アカウント検索" href="searching.html" />
+    <link rel="prev" title="Authorization(認可)" href="authorization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Application</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">暗号化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#diagrams">Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">セキュリティー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication(認証)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html">Authorization(認可)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Permissions(権限)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acl">ACL(Access Control List)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#users-and-groups">Users and Groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html">アカウント検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Features(機能)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">バックアップ手順</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">アップデート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Application</a> &raquo;</li>
+        
+      <li>Permissions(権限)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/application/permissions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="permissions">
+<h1>Permissions(権限)<a class="headerlink" href="#permissions" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>作成したユーザのデフォルトの権限はアカウトの検索のみが許可されています。それ以外の操作を許可する場合はそれぞれの権限を付与してください。</p>
+<p>sysPassの権限設定には29種類の設定項目があります</p>
+<ul class="simple">
+<li><p><strong>アカウント</strong></p>
+<ul>
+<li><p>Create - 新しいアカウントを作成することを許可します</p></li>
+<li><p>View - アカウントの情報を閲覧することを許可します <a class="footnote-reference brackets" href="#f1" id="id1">1</a></p></li>
+<li><p>View Password - アカウント情報と合わせて保存されているパスワードを閲覧することを許可します <a class="footnote-reference brackets" href="#f1" id="id2">1</a></p></li>
+<li><p>Edit - アカウント情報を編集することを許可します <a class="footnote-reference brackets" href="#f1" id="id3">1</a></p></li>
+<li><p>Edit Password - アカウント情報と合わせて保存されているパスワードを変更することを許可します <a class="footnote-reference brackets" href="#f1" id="id4">1</a></p></li>
+<li><p>Delete - アカウントを削除することを許可します <a class="footnote-reference brackets" href="#f1" id="id5">1</a></p></li>
+<li><p>Files - アカウント情報と合わせて保存されているファイルにアクセスすることを許可します</p></li>
+<li><p>Share Link - 共有リンクを発行することを許可します</p></li>
+<li><p>Private - 自分のみがアクセスできるプライベートなアカウトを作成することを許可します</p></li>
+<li><p>Private for Group - 指定したグループに属するユーザだけがアクセスできるプライベートアカウントを作成することを許可する</p></li>
+<li><p>Permissions - 権限設定を閲覧したり、変更すること許可する <a class="footnote-reference brackets" href="#f1" id="id6">1</a></p></li>
+<li><p>Global Search - プライベートアカウントを除く全てのアカウントを対象に検索をすることを許可する <a class="footnote-reference brackets" href="#f2" id="id7">2</a></p></li>
+</ul>
+</li>
+<li><p><strong>Management</strong></p>
+<ul>
+<li><p>Users - 全てのユーザを管理することを許可する <a class="footnote-reference brackets" href="#f3" id="id8">3</a></p></li>
+<li><p>Groups - 全てのグループを管理することを許可する</p></li>
+<li><p>Profiles - 全てのプロファイルを管理することを許可する</p></li>
+<li><p>Categories - 全てのカテゴリーを管理することを許可する</p></li>
+<li><p>Clients - 全てのクライアントを管理することを許可する</p></li>
+<li><p>Custom Fields - 全てのカスタムフィールドを管理することを許可する</p></li>
+<li><p>API Authorizations - 全てのAPIを管理することを許可する</p></li>
+<li><p>Public Links - 全ての共有リンクについて管理することを許可する</p></li>
+<li><p>Accounts - 全てのアカウントを管理することを許可する</p></li>
+<li><p>Files - 全てのファイルを管理することを許可する</p></li>
+<li><p>Tags - 全てのタグを管理することを許可します</p></li>
+</ul>
+</li>
+<li><p><strong>Configuration</strong></p>
+<ul>
+<li><p>General - サイト・アカウント・Wiki・LDAP・メールに冠する全ての設定を変更することを許可します</p></li>
+<li><p>Encryption - マスターパスワードに関する全ての設定を変更することを許可します</p></li>
+<li><p>Backup - バックアップを作成することを許可します <a class="footnote-reference brackets" href="#f4" id="id9">4</a></p></li>
+<li><p>Import - XML/CSVファイルをインポートすることを許可します</p></li>
+</ul>
+</li>
+<li><p><strong>Others</strong></p>
+<ul>
+<li><p>Event Log - イベントログを閲覧することを許可します</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="acl">
+<h2>ACL(Access Control List)<a class="headerlink" href="#acl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="users-and-groups">
+<h3>Users and Groups<a class="headerlink" href="#users-and-groups" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>ユーザープロファイルを設定することで権限を設定できます</p></li>
+<li><p>ユーザは次の場合に該当する時のみ、アカウント情報にアクセスできます</p>
+<ul>
+<li><p>アカウントのオーナーである場合</p></li>
+<li><p>許可されたprimary groupに属している場合</p></li>
+<li><p>許可されたsecondary groupに属している場合</p></li>
+<li><p>アカウントのsecondary userに設定されている場合</p></li>
+<li><p>ユーザのmian groupがアカウントのsecondary groupに設定されている場合</p></li>
+<li><p>ユーザのmian groupがアカウントのsecondary group accessオプションが有効化されている場合</p></li>
+</ul>
+</li>
+<li><p>個人のプライベートアカウントには作成したユーザとそのユーザが許可したユーザのみがアクセスできます</p></li>
+<li><p>グループプライベートアカウントには許可されたグループがmain groupになっているユーザのみがアクセスできます</p></li>
+<li><p>アプリケーション管理者:: プライベートアカウントを除く全てのアカウント・全てのアプリケーションモジュール・アカウントへのフルアクセスをすることができます</p></li>
+<li><p>アカウント管理車: プライベートアカウントを除く全てのアカウントにアクセスできます</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="api">
+<h3>API<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>APIにもユーザと同じ権限が与えられているため、APIを用いてアクセスできる情報はブラウザで閲覧できる情報と同じです。</p>
+<p class="rubric">Notes</p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>,<a href="#id4">4</a>,<a href="#id5">5</a>,<a href="#id6">6</a>)</span></dt>
+<dd><p>そのユーザがそのアカウントへのアクセス権限がある場合に限る</p>
+</dd>
+<dt class="label" id="f2"><span class="brackets"><a class="fn-backref" href="#id7">2</a></span></dt>
+<dd><p>検索する権限は持っているが、そのアカウントへのアクセス権限を持っていないユーザーはそのアカウントにアクセスすることはできません。代わりに’アクセス権限のリクエスト’だけを行うことができます</p>
+</dd>
+<dt class="label" id="f3"><span class="brackets"><a class="fn-backref" href="#id8">3</a></span></dt>
+<dd><p>‘アプリケーション管理者’以外が他のユーザの情報を変更することはできません</p>
+</dd>
+<dt class="label" id="f4"><span class="brackets"><a class="fn-backref" href="#id9">4</a></span></dt>
+<dd><p>生成したバックアップファイルをダウンロードできるのは’アプリケーション管理者’のみです</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="searching.html" class="btn btn-neutral float-right" title="アカウント検索" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="authorization.html" class="btn btn-neutral float-left" title="Authorization(認可)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        最終更新: 9月 08, 2020
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

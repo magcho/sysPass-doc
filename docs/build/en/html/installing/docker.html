@@ -1,0 +1,395 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Docker Installation &mdash; sysPass 3.1.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Hosting Mode" href="hostingmode.html" />
+    <link rel="prev" title="CentOS 7.x Installation" href="centos7.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="debian9.html">Debian 9 Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="centos7.html">CentOS 7.x Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Docker Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Docker Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-access">Database Access</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hostingmode.html">Hosting Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Installation</a> &raquo;</li>
+        
+      <li>Docker Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/installing/docker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docker-installation">
+<h1>Docker Installation<a class="headerlink" href="#docker-installation" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://docs.docker.com/engine/installation/">Docker</a> based installations allow to run the application in an isolated environment besides try out multiple versions without installing any package on the host system.</p>
+<p>sysPass can be ran in <a class="reference external" href="https://en.wikipedia.org/wiki/Docker_%28software%29">Docker containers</a> which has been compiled on top of latest <a class="reference external" href="https://www.debian.org/">Debian</a> stable version (Stretch) and avoiding any <strong>package compilation</strong>.</p>
+<p>Docker images can be got from <a class="reference external" href="https://hub.docker.com/r/syspass/syspass/tags">Docker Hub</a> and they are complied automatically from Docker source files on  <a class="reference external" href="https://github.com/nuxsmin/docker-syspass">https://github.com/nuxsmin/docker-syspass</a></p>
+<p>There are two ways for installing:</p>
+<ul class="simple">
+<li><p>Using <a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a> (recommended): deploys a fully working sysPass environment including application and database services.</p></li>
+<li><p>Using <a class="reference external" href="https://docs.docker.com/engine/installation/">Docker</a>: deploys each service (application and database) separately.</p></li>
+</ul>
+<div class="section" id="id2">
+<span id="id3"></span><h2>Docker Compose<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>In order to deploy using this method, you need to issue the following steps:</p>
+<ol class="arabic simple">
+<li><p>Install Docker engine from <a class="reference external" href="https://docs.docker.com/install/">https://docs.docker.com/install/</a></p></li>
+<li><p>Install Docker Compose from <a class="reference external" href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p></li>
+<li><p>Download “docker-compose.yml” sysPass’ file from <a class="reference external" href="https://raw.githubusercontent.com/nuxsmin/docker-syspass/master/docker-compose.yml">https://raw.githubusercontent.com/nuxsmin/docker-syspass/master/docker-compose.yml</a> or use the following one:</p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">app</span><span class="p">:</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">syspass-app</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">syspass/syspass:3.1.0</span> <span class="c1"># Set this version tag to desired one</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="c1"># Will listen on ports 80 and 443 of the host</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;80:80&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;443:443&quot;</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">syspass-config:/var/www/html/sysPass/app/config</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">syspass-backup:/var/www/html/sysPass/app/backup</span>
+    <span class="c1"># Set USE_SSL=no if you&#39;re using a LB or reverse proxy for SSL offloading</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">USE_SSL=yes</span>
+  <span class="nt">db</span><span class="p">:</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">syspass-db</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mariadb:10.2</span>
+    <span class="c1"># Set a secure password for MariaDB root user</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=syspass</span>
+    <span class="c1"># This ports will only be accesible internally</span>
+    <span class="nt">expose</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;3306&quot;</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">syspass-db:/var/lib/mysql</span>
+
+<span class="c1"># Persistent volumes to be used across updates</span>
+<span class="nt">volumes</span><span class="p">:</span>
+  <span class="nt">syspass-config</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+  <span class="nt">syspass-backup</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+  <span class="nt">syspass-db</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Run “docker-compose” tool for setting up the environment:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose -p syspass -f docker-compose.yml up -d
+</pre></div>
+</div>
+<p>This will download the latest sysPass stable image and the database (MariaDB) one.</p>
+<ol class="arabic simple" start="5">
+<li><p>Take a look to deployment’s logs:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose -p syspass -f docker-compose.yml logs -f
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Docker Compose will create an isolated network for all sysPass services making possible to use DNS resolution between containers. You can use “syspass-db” for setting up the database hostname in sysPass installation page.</p>
+<p>It will create two fixed volumes for sysPass application, one for “…/app/config” directory and the other for “…/app/backup” directory. An additional fixed volume will be created for the database container’s data.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>sysPass container will publish 80 and 443 host’s ports to the outside. You could change this behavior by tweaking the Docker Compose’s file.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can disable HTTPS redirection by setting “USE_SSL=no” within “docker-compose.yml” file. This will offload the SSL encryption to a LB or reverse proxy.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Docker<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>By this way all the services need to be deployed manually. The following steps are needed:</p>
+<ol class="arabic simple">
+<li><p>Install Docker engine from <a class="reference external" href="https://docs.docker.com/install/">https://docs.docker.com/install/</a></p></li>
+<li><p>Create network for sysPass services:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker network create syspass-net
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Create fixed volunes for sysPass services:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker volume create syspass-app-config
+docker volume create syspass-app-backup
+docker volume create syspass-db-data
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Setup sysPass database container:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --name syspass-db <span class="se">\</span>
+--network syspass-net <span class="se">\</span>
+--restart unless-stopped <span class="se">\</span>
+--env <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>syspass <span class="se">\</span>
+--volume syspass-db-data:/var/lib/mysql <span class="se">\</span>
+--detach mariadb:10.2
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Setup sysPass application container:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --name syspass-app <span class="se">\</span>
+--network syspass-net <span class="se">\</span>
+--publish <span class="m">80</span>:80 <span class="se">\</span>
+--restart unless-stopped <span class="se">\</span>
+--volume syspass-app-config:/var/www/html/sysPass/app/config <span class="se">\</span>
+--volume syspass-app-backup:/var/www/html/sysPass/app/backup <span class="se">\</span>
+--detach syspass/syspass:3.1.0
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Connection data will be displayed in application container’s console:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker logs -f syspass-app
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can install sysPass extensions (plugins) by setting “COMPOSER_EXTENSIONS” environment variable when deploying the sysPass application container. Example: “–env COMPOSER_EXTENSIONS=’syspass/plugin-authenticator’”</p>
+</div>
+</div>
+<div class="section" id="database-access">
+<h2>Database Access<a class="headerlink" href="#database-access" title="Permalink to this headline">¶</a></h2>
+<p>You can get access to the database using the following connection data:</p>
+<ul class="simple">
+<li><p>User: root</p></li>
+<li><p>Password: syspass</p></li>
+</ul>
+<div class="alert alert-success docutils container">
+<p>You may install other sysPass images from <a class="reference external" href="https://hub.docker.com/r/syspass/syspass/tags">Docker Hub</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please follow the installer steps in order to setup the sysPass application instance.</p>
+<p>More information about how sysPass works on <a class="reference internal" href="../application/index.html"><span class="doc">Application</span></a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It’s very advisable to take a look to security advices on <a class="reference internal" href="../application/security.html"><span class="doc">Security</span></a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hostingmode.html" class="btn btn-neutral float-right" title="Hosting Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="centos7.html" class="btn btn-neutral float-left" title="CentOS 7.x Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        Last updated on Sep 06, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

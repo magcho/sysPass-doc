@@ -1,0 +1,362 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Debian 9 Installation &mdash; sysPass 3.1.2 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="CentOS 7.x Installation" href="centos7.html" />
+    <link rel="prev" title="インストール" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">インストール</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Debian 9 Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">動作用件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">インストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directories-and-permissions">Directories and permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-dependencies">Installing dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-php-composer">Using PHP Composer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-configuration">環境設定</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="centos7.html">CentOS 7.x Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hostingmode.html">Hosting Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">アップデート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">インストール</a> &raquo;</li>
+        
+      <li>Debian 9 Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/installing/debian9.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="debian-9-installation">
+<h1>Debian 9 Installation<a class="headerlink" href="#debian-9-installation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>動作用件<a class="headerlink" href="#prerequisites" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>Web server [Apache/Nginx/Lighttpd] (SSLを有効化する際は対応のWeb serverを利用してください)</p></li>
+<li><p>MariaDB &gt;= 10.1</p></li>
+<li><p>PHP &gt;= 7.0</p></li>
+<li><dl class="simple">
+<dt>PHP modules</dt><dd><ul>
+<li><p>mysql</p></li>
+<li><p>curl</p></li>
+<li><p>json</p></li>
+<li><p>gd</p></li>
+<li><p>xml</p></li>
+<li><p>mbstring</p></li>
+<li><p>intl</p></li>
+<li><p>readline</p></li>
+<li><p>ldap (optional)</p></li>
+<li><p>mcrypt (optional for importing older XML export files)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>最新版のsysPass (<a class="reference external" href="https://github.com/nuxsmin/sysPass/releases/latest">https://github.com/nuxsmin/sysPass/releases/latest</a>)</p></li>
+<li><p>リリースページのほかGitを利用して最新のsysPassを利用することもできます(<a class="reference external" href="https://github.com/nuxsmin/sysPass.git">https://github.com/nuxsmin/sysPass.git</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以下のコマンドで必要なパッケージをインストールしてください</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt install locales apache2 libapache2-mod-php7.0 php-pear php7.0 php7.0-cgi php7.0-cli php7.0-common php7.0-fpm php7.0-gd php7.0-json php7.0-mysql php7.0-readline php7.0 curl php7.0-intl php7.0-ldap php7.0-mcrypt php7.0-xml php7.0-mbstring
+$ sudo service apache2 restart
+</pre></div>
+</div>
+<p>オプションとしてSSLを有効化することもできます。</p>
+<p>SSLを利用することでより一層sysPassを安全に利用することができます。SSLの有効化手順については:doc:<a href="#id1"><span class="problematic" id="id2">`</span></a>/application/security`または以下を参照してください</p>
+<ul class="simple">
+<li><p>sysPassをLAN内で利用している場合: <a class="reference external" href="https://doc.debian.org/configuration/Self-Signed_Certificate">https://doc.debian.org/configuration/Self-Signed_Certificate</a></p></li>
+<li><p>sysPassをインターネットに公開している場合はLet’s Encryptの利用を検討してみてください( <a class="reference external" href="https://certbot.eff.org/">https://certbot.eff.org/</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="directories-and-permissions">
+<h2>Directories and permissions<a class="headerlink" href="#directories-and-permissions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>サーバのドキュメントルートに sysPass用のディレクトリを作成してください。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo mkdir /var/www/html/syspass
+</pre></div>
+</div>
+<p>リリースページからsysPassをダウンロードして先ほど作成したディレクトリの中に配置してください。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /var/www/html/syspass
+$ sudo tar xzf syspass.tar.gz
+</pre></div>
+</div>
+<p>リリースページからダウンロードしなくてもGitを用いて配置することもできます。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo git clone https://github.com/nuxsmin/sysPass.git  /var/www/html/syspass
+</pre></div>
+</div>
+<p>以下のコマンドでいくつかのディレクトリの所有者とパーミッションを変更してください。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo chown apache -R /var/www/html/syspass
+$ sudo chmod <span class="m">750</span> /var/www/html/syspass/app/config /var/www/html/syspass/app/backup
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-dependencies">
+<h2>Installing dependencies<a class="headerlink" href="#installing-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ComposerはPHP向けのパッケージマネージャーで依存パッケージのインストール・アップデートを簡単に行うために必要なものです。</p>
+<p>Composerを利用しない場合はgithubのリリースページから “vendor.tar.gz” をダウンロードして配置することでsysPassを始めることができます。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Composerコマンドで依存パッケージをインストールするためにサーバがインターネットに接続できるようになっている必要があります。</p>
+</div>
+<div class="section" id="using-php-composer">
+<h3>Using PHP Composer<a class="headerlink" href="#using-php-composer" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>sysPassのルートディレクトリへ移動し、Composerをインストールしてください、インストール方法はComposerのドキュメント（<a class="reference external" href="https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md">https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md</a>）を参照してください</p>
+<p>以下のスクリプトを実行することでComposerをインストールすることもできます</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="nv">EXPECTED_SIGNATURE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>wget -q -O - https://composer.github.io/installer.sig<span class="k">)</span><span class="s2">&quot;</span>
+php -r <span class="s2">&quot;copy(&#39;https://getcomposer.org/installer&#39;, &#39;composer-setup.php&#39;);&quot;</span>
+<span class="nv">ACTUAL_SIGNATURE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>php -r <span class="s2">&quot;echo hash_file(&#39;sha384&#39;, &#39;composer-setup.php&#39;);&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$EXPECTED_SIGNATURE</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$ACTUAL_SIGNATURE</span><span class="s2">&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+    &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> <span class="s1">&#39;ERROR: Invalid installer signature&#39;</span>
+    rm composer-setup.php
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+php composer-setup.php --quiet
+<span class="nv">RESULT</span><span class="o">=</span><span class="nv">$?</span>
+rm composer-setup.php
+<span class="nb">exit</span> <span class="nv">$RESULT</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chmod +x install_composer.sh
+$ ./install_composer.sh
+</pre></div>
+</div>
+<p>Composerのインストールが終わったら、次はsysPassの依存パッケージをインストールします。以下のコマンドを実行してください</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ php composer.phar install --no-dev
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="environment-configuration">
+<h2>環境設定<a class="headerlink" href="#environment-configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以上の操作が終わったらwebブラウザでsysPassにアクセスしてインストールウィザードに従って環境設定をしてsysPassのインストールを完了してください</p>
+<p><a class="reference external" href="https://IP_OR_SERVER_ADDRESS/syspass/index.php">https://IP_OR_SERVER_ADDRESS/syspass/index.php</a></p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>sysPassに関するもっと詳しい説明は <a class="reference internal" href="../application/index.html"><span class="doc">Application</span></a> をお読みください</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>sysPassを安全に利用するために <a class="reference internal" href="../application/security.html"><span class="doc">Security</span></a> をお読みください</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="centos7.html" class="btn btn-neutral float-right" title="CentOS 7.x Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="インストール" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        最終更新: 9月 08, 2020
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

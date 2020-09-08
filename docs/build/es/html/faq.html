@@ -1,0 +1,343 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Preguntas Frecuentes &mdash; documentación de sysPass - 3.1.2</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="LDAP Troubleshooting" href="howtos/ldap_troubleshooting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installing/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application/index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updating/index.html">Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Preguntas Frecuentes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirve-syspass">¿Para qué sirve sysPass?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#donde-se-puede-instalar-syspass">¿Dónde se puede instalar sysPass?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#como-se-instala-syspass">¿Cómo se instala sysPass?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#que-metodos-de-autentificacion-utiliza">¿Qué métodos de autentificación utiliza?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirve-la-encriptacion">¿Para qué sirve la encriptación?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#que-quiere-decir-portable">¿Qué quiere decir “portable”?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hay-una-clave-maestra-por-cada-cuenta-usuario">¿Hay una clave maestra por cada cuenta/usuario?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#que-son-los-enlaces-a-wiki">¿Qué son los enlaces a Wiki?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirven-las-categorias">¿Para qué sirven las categorías?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirven-los-grupos-de-usuarios">¿Para qué sirven los grupos de usuarios?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirve-el-campo-cliente">¿Para qué sirve el campo cliente?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#existe-un-historico-de-cuentas">¿Existe un histórico de cuentas?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#para-que-sirven-los-perfiles">¿Para qué sirven los perfiles?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#que-es-el-modo-mantenimiento">¿Qué es el modo mantenimiento?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#puedo-cambiar-la-clave-maestra">¿Puedo cambiar la Clave Maestra?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#no-recuerdo-la-clave-maestra-puedo-desencriptar-las-claves">No recuerdo la Clave Maestra, ¿Puedo desencriptar las claves?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#funciona-el-backup-en-windows">¿Funciona el backup en Windows?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#el-lenguaje-no-cambia">El lenguaje no cambia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-are-these-strange-characters-in-password-fields">What are these strange characters in password fields?</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Preguntas Frecuentes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/faq.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="preguntas-frecuentes">
+<h1>Preguntas Frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="para-que-sirve-syspass">
+<h2>¿Para qué sirve sysPass?<a class="headerlink" href="#para-que-sirve-syspass" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>sysPass un gestor de claves que permite almacenarlas de forma segura mediante encriptación de doble sentido con clave maestra. Las claves están asociadas a cuentas, las cuales tienen información detallada del propósito de la misma como: cliente, categoría, notas, archivos, etc.</p>
+<p>La idea inicial era la de hacer accesible las claves de cuentas de acceso a servidores y servicios en un entorno multiusuario, de forma segura y que pudiera ser exportable a una memoria externa.</p>
+</div>
+<div class="section" id="donde-se-puede-instalar-syspass">
+<h2>¿Dónde se puede instalar sysPass?<a class="headerlink" href="#donde-se-puede-instalar-syspass" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La aplicación pueder ser instalada en cualquier sistema que disponga de Apache, PHP y MySQL.</p>
+</div>
+<div class="section" id="como-se-instala-syspass">
+<h2>¿Cómo se instala sysPass?<a class="headerlink" href="#como-se-instala-syspass" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Bajar la aplicación desde <a class="reference external" href="https://github.com/nuxsmin/sysPass/releases/latest">https://github.com/nuxsmin/sysPass/releases/latest</a> y seguir los pasos de <a class="reference internal" href="installing/index.html"><span class="doc">Installation</span></a></p>
+</div>
+<div class="section" id="que-metodos-de-autentificacion-utiliza">
+<h2>¿Qué métodos de autentificación utiliza?<a class="headerlink" href="#que-metodos-de-autentificacion-utiliza" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>sysPass utiliza MySQL/MariaDB o LDAP como “backends” de autentificación.</p>
+<p>En caso de utilizar LDAP, si no es posible conectar con el servidor de LDAP, se utilizará MySQL como “backend” utilizando los datos de acceso de la última sesión iniciada en LDAP.</p>
+<p>Para más información ver: <a class="reference internal" href="application/authentication.html"><span class="doc">Authentication</span></a></p>
+</div>
+<div class="section" id="para-que-sirve-la-encriptacion">
+<h2>¿Para qué sirve la encriptación?<a class="headerlink" href="#para-que-sirve-la-encriptacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La encriptación de las claves en la base de datos permite que, en caso de que alguien tenga acceso a ésta o si se realiza una exportación de la misma, no sea legible sin la clave maestra.</p>
+<p>Esta solución es muy conveniente para ejecutar la aplicación desde un pendrive, para casos en los que no es posible acceder al servidor donde se almacena la aplicación.
+¿Qué tipo de encriptación utiliza?</p>
+<p>El esquema de cifrado utilizado es <a class="reference external" href="http://es.wikipedia.org/wiki/Advanced_Encryption_Standard">rijndael-256</a> en modo <a class="reference external" href="http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation#Cipher-block_chaining_.28CBC.29">CBC</a>.</p>
+<p>Para más información ver: <a class="reference internal" href="application/encryption.html"><span class="doc">Encryption</span></a></p>
+</div>
+<div class="section" id="que-quiere-decir-portable">
+<h2>¿Qué quiere decir “portable”?<a class="headerlink" href="#que-quiere-decir-portable" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Este término se refiere a aquellas aplicaciones que pueden ser ejecutadas sin realizar la instalación de componentes en el sistema operativo que la ejecuta.</p>
+<p>Esta aplicación es posible hacerla “portable” mediante la instalación de apache, php y mysql en una unidad externa. Para ello, es posible utilizar cualquiera de los paquetes <a class="reference external" href="http://es.wikipedia.org/wiki/LAMP">LAMP</a> disponibles como WAMP, XAMPP, etc.</p>
+<p>La herramienta de backup permite realizar una copia de todo el entorno (aplicación y base de datos), para poder instalarlo en la unidad externa. La encriptación de los datos de las cuentas, hace que la seguridad sea muy alta en caso de pérdida de la unidad extraíble.</p>
+</div>
+<div class="section" id="hay-una-clave-maestra-por-cada-cuenta-usuario">
+<h2>¿Hay una clave maestra por cada cuenta/usuario?<a class="headerlink" href="#hay-una-clave-maestra-por-cada-cuenta-usuario" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La clave maestra es global para todas las cuentas y usuarios.</p>
+<p>Cada vez que un usuario se dé de alta, cambie su clave personal o se reestablezca la clave maestra, será necesario que éste la introduzca en el siguiente inicio de sesión.</p>
+<p>Cada vez que se produzca un cambio de clave maestra, los usuarios que tengan iniciada la sesión, sólo podrán visualizar las cuentas hasta que introduzca la nueva clave.</p>
+<p>Para más información ver: <a class="reference internal" href="application/encryption.html"><span class="doc">Encryption</span></a></p>
+</div>
+<div class="section" id="que-son-los-enlaces-a-wiki">
+<h2>¿Qué son los enlaces a Wiki?<a class="headerlink" href="#que-son-los-enlaces-a-wiki" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Nos permiten enlazar las cuentas con un determinado patrón de nombre, a una Wiki externa que permita pasar el nombre de la cuenta como parámetro en la URL.</p>
+<p>Hay dos tipos de enlaces, uno que enlaza con la página de búsqueda de la Wiki y pasa como parámetro el nombre del cliente, y otro, que enlaza directamente con la página de la cuenta.</p>
+</div>
+<div class="section" id="para-que-sirven-las-categorias">
+<h2>¿Para qué sirven las categorías?<a class="headerlink" href="#para-que-sirven-las-categorias" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las categorías tienen como objetivo el clasificar las cuentas para poder realizar búsquedas más precisas.</p>
+</div>
+<div class="section" id="para-que-sirven-los-grupos-de-usuarios">
+<h2>¿Para qué sirven los grupos de usuarios?<a class="headerlink" href="#para-que-sirven-los-grupos-de-usuarios" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Estos grupos se utilizan para dar acceso a los usuarios a las cuentas que tengan dicho grupo como principal o secundario.</p>
+</div>
+<div class="section" id="para-que-sirve-el-campo-cliente">
+<h2>¿Para qué sirve el campo cliente?<a class="headerlink" href="#para-que-sirve-el-campo-cliente" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Al igual que las categorías, es posible hacer búsquedas basadas en el cliente. Este campo se puede tratar de forma genérica como departamento, empresa, división, etc.</p>
+<p>En futuras versiones se podrán asociar usuarios a clientes.</p>
+</div>
+<div class="section" id="existe-un-historico-de-cuentas">
+<h2>¿Existe un histórico de cuentas?<a class="headerlink" href="#existe-un-historico-de-cuentas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Sí, cada vez que se realiza una modificación de una cuenta, se realiza una copia del estado anterior de la misma.</p>
+<p>En los detalles de la cuenta se puede visualizar cada registro del histórico de una cuenta. Si la clave maestra con la que fue guardada la cuenta en dicho punto no conincide con la actual, no se podrá mostrar.</p>
+</div>
+<div class="section" id="para-que-sirven-los-perfiles">
+<h2>¿Para qué sirven los perfiles?<a class="headerlink" href="#para-que-sirven-los-perfiles" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los perfiles son usados para definir las acciones que pueden realizar los usuarios.</p>
+<p>Existen 29 niveles de acceso que pueden ser activados de forma conjunta, permitiendo así definir a qué partes de la aplicación pueden acceder los usuarios con dicho perfil.</p>
+</div>
+<div class="section" id="que-es-el-modo-mantenimiento">
+<h2>¿Qué es el modo mantenimiento?<a class="headerlink" href="#que-es-el-modo-mantenimiento" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Este modo se utiliza para impedir que los usuarios utilicen la aplicación en las ocasiones en las que se estén realizando operaciones sobre la Base de Datos, actualizaciones, etc.</p>
+<p>El usuario que active el modo matenimiento será el único que puede utilizar la aplicación hasta el cierre de sesión. Después de ello es necesario desactivarlo en el archivo «config/config.xml» bajo la etiqueta «maintenance»</p>
+</div>
+<div class="section" id="puedo-cambiar-la-clave-maestra">
+<h2>¿Puedo cambiar la Clave Maestra?<a class="headerlink" href="#puedo-cambiar-la-clave-maestra" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Sí, para ello es necesario conocer la actual. Se recomienda realizar una copia de seguridad de la Base de Datos.</p>
+</div>
+<div class="section" id="no-recuerdo-la-clave-maestra-puedo-desencriptar-las-claves">
+<h2>No recuerdo la Clave Maestra, ¿Puedo desencriptar las claves?<a class="headerlink" href="#no-recuerdo-la-clave-maestra-puedo-desencriptar-las-claves" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>No, no es posible visualizar una clave sin la Clave Maestra.</p>
+</div>
+<div class="section" id="funciona-el-backup-en-windows">
+<h2>¿Funciona el backup en Windows?<a class="headerlink" href="#funciona-el-backup-en-windows" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Sí, desde la versión 1.1 se utiliza la librería PHAR de PHP para realizar los backups.</p>
+</div>
+<div class="section" id="el-lenguaje-no-cambia">
+<h2>El lenguaje no cambia<a class="headerlink" href="#el-lenguaje-no-cambia" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Revisa las locales instaladas en tu sistema (servidor), porque sysPass usa el sistema de internacionalización <a class="reference external" href="https://en.wikipedia.org/wiki/Gettext">GNU gettext</a>.</p>
+<p>Las locales deben de ser de la variante UTF-8.</p>
+</div>
+<div class="section" id="what-are-these-strange-characters-in-password-fields">
+<h2>What are these strange characters in password fields?<a class="headerlink" href="#what-are-these-strange-characters-in-password-fields" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Don’t worry about them, your password is okay. It’s a security mechanism by which the passwords entered in a form field are automatically encrypted using RSA encryption before sending over the HTTP channel. Then, on server side, they are decrypted and stored/used as they were entered.</p>
+<p>Further info on: <a class="reference internal" href="application/encryption.html"><span class="doc">Encryption</span></a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="howtos/ldap_troubleshooting.html" class="btn btn-neutral float-left" title="LDAP Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        Actualizado por última vez en sept. 06, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

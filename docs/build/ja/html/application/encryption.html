@@ -1,0 +1,320 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>暗号化 &mdash; sysPass 3.1.2 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="セキュリティー" href="security.html" />
+    <link rel="prev" title="Application" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Application</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">暗号化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#temporary-master-key">仮マスターパスワード</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pki-rsa">PKI-RSA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#diagrams">Diagrams</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#login-process">Login Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#master-password-process">Master Password Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temporary-master-key-process">Temporary Master Key Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pki-process">PKI Process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">セキュリティー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication(認証)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html">Authorization(認可)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permissions(権限)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html">アカウント検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Features(機能)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">バックアップ手順</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">アップデート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Application</a> &raquo;</li>
+        
+      <li>暗号化</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/application/encryption.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="encryption">
+<h1>暗号化<a class="headerlink" href="#encryption" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>古いバージョンのsysPass <strong>&lt;= 2.0</strong> には暗号アルゴリズムに問題 (CVE-2017-5999)があります、早急なアップデートをおすすめします。アップデート時は一旦2.1にした後、3.1にアップデートすることをおすすめします。アップデートの詳細については <a class="reference internal" href="../updating/index.html"><span class="doc">アップデート</span></a> を参照してください。</p>
+</div>
+<p>sysPassは <a class="reference external" href="http://es.wikipedia.org/wiki/Advanced_Encryption_Standard">AES-256</a> <a class="reference external" href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_.28CTR.29">CTR</a> を用いてパスワードを暗号化しています。これにはPHPの <a class="reference external" href="http://php.net/manual/en/book.openssl.php">OpenSSL</a> モジュールである <a class="reference external" href="https://github.com/defuse/php-encryption/blob/master/docs/CryptoDetails.md">Defuse/php-encryption</a> を用いています。</p>
+<p>sysPass(&lt;=3.1)が暗号化しているものは以下の項目です。オプション項目を暗号化するには設定がが必要な場合があります</p>
+<ul class="simple">
+<li><p>アカウントのパスワード</p></li>
+<li><p>アカウントの公開リンク</p></li>
+<li><p>カスタムフィールドのデータ(オプション)</p></li>
+<li><p>プラグインデータ</p></li>
+<li><p>sysPassでエクスポートしたXMLファイル(オプション)</p></li>
+<li><p>PHPのセッションデータ(オプション)</p></li>
+</ul>
+<p>ユーザが最初にログインするときにマスターパスワードもしくは <a class="reference internal" href="#temporarymasterkey"><span class="std std-ref">仮マスターパスワード</span></a> の入力が必要です。これはsysPassにはマスターパスワードではなくその <a class="reference external" href="`https://en.wikipedia.org/wiki/Blowfish_(cipher)`">Blowfish</a> ハッシュのみが保存されているためです。</p>
+<p>マスターパスワードでログインした後、”…/app/config/config.xml” ファイルに保存されているハッシュソルトと <a class="reference external" href="http://php.net/manual/en/function.openssl-random-pseudo-bytes.php">openssl_random_pseudo_bytes</a> を用いて安全なハッシュを生成しデータベースに保存します。</p>
+<p>２回目以降のログイン時に上記のような方法で生成したハッシュを用いてログインするため毎回マスターパスワードを入力する必要はありません。ログイン後はマスターパスワードから生成したハッシュを暗号化してセッションに含めます。このセッションの有効期限は120秒に設定されているため120秒経つと最後暗号化をしてセッションを更新します。</p>
+<p>以下のような場合、sysPassは再度マスターパスワードの入力を求めることがあります</p>
+<ul class="simple">
+<li><p>ユーザーがユーザー名もしくはパスワードを変更しようとした場合。</p></li>
+<li><p>管理者権限の必要な変更を行った場合。</p></li>
+<li><p>ハッシュソルトが変更された場合。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><a class="reference internal" href="#temporarymasterkey"><span class="std std-ref">仮マスターパスワード</span></a> を利用すると実際にマスターパスワードを入力する場面で、代わりに期限や利用回数に上限のある仮マスターパスワードを入力することでより安全にsysPassを利用できます</p>
+</div>
+<div class="section" id="temporary-master-key">
+<span id="temporarymasterkey"></span><h2>仮マスターパスワード<a class="headerlink" href="#temporary-master-key" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>仮マスターパスワードを利用するメリットは、管理者だけが本当のマスターパスワードを覚えておけばその他のsysPassを利用する全てのユーザーには仮マスターパスワードを教えれば利用でき、彼ら(彼女ら)には本当のマスターパスワードを教える必要がないという点です。</p>
+<p>仮マスターパスワードの生成時には、”…/app/config/config.xml” ファイルに保存されているハッシュソルトと <a class="reference external" href="http://php.net/manual/en/function.openssl-random-pseudo-bytes.php">openssl_random_pseudo_bytes</a> を用いて実際のアスターパスワードを暗号化し、それを <a class="reference external" href="`https://en.wikipedia.org/wiki/Blowfish_(cipher)`">Blowfish</a> を用いてさらに生成したハッシュを データベースの “”Config” テーブルに保存しています。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>マスターパスワード同様に仮マスターパスワードも <a class="reference external" href="`https://en.wikipedia.org/wiki/Blowfish_(cipher)`">Blowfish</a>  でハッシュ化した情報が保存されるだけで、<strong>そのままの形で</strong> 保存されることはありません</p>
+</div>
+</div>
+<div class="section" id="pki-rsa">
+<h2>PKI-RSA<a class="headerlink" href="#pki-rsa" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ブラウザからサーバに送信されるフォーム内の情報のセキュリティーを向上させるため、パスワードの暗号化に <a class="reference external" href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> (<a class="reference external" href="https://en.wikipedia.org/wiki/Public_key_infrastructure">PKI</a>) を用いています。これによりブラウザからサーバに機密情報を送信するときに暗号化されていない形で送信されることがなくなりました。</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> の公開鍵・秘密鍵は”…/app/config”ディレクトリに生成されます。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>サーバからブラウザに送信される情報は暗号化されていません。これを暗号化するにはHTTPSを利用してください。</p>
+</div>
+</div>
+</div>
+<div class="section" id="diagrams">
+<h1>Diagrams<a class="headerlink" href="#diagrams" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="login-process">
+<h2>Login Process<a class="headerlink" href="#login-process" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="master-password-process">
+<h2>Master Password Process<a class="headerlink" href="#master-password-process" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="temporary-master-key-process">
+<h2>Temporary Master Key Process<a class="headerlink" href="#temporary-master-key-process" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="pki-process">
+<h2>PKI Process<a class="headerlink" href="#pki-process" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>他のサービスと同じパスワードを使い回すことや、推測されやすいいパスワードを使うことのセキュリティーリスクがとても高いことに注意してください。</p>
+<p>ネットワークが盗聴されるとパスワードが盗まれる可能性があります。データベースとwebサーバを同一のサーバで運用している場合は特に注意してください。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="security.html" class="btn btn-neutral float-right" title="セキュリティー" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        最終更新: 9月 08, 2020
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

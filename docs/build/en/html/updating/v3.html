@@ -1,0 +1,270 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.0 Version &mdash; sysPass 3.1.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.1 Version" href="v3.1.html" />
+    <link rel="prev" title="2.1 Version" href="v2_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/index.html">Application</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Updating</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="strategies.html">Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v2_1.html">2.1 Version</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.0 Version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#important-changes">Important Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#process">Process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="v3.1.html">3.1 Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Updating</a> &raquo;</li>
+        
+      <li>3.0 Version</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/updating/v3.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="version">
+<h1>3.0 Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h1>
+<p>This version only can be updated from v2.1</p>
+<div class="section" id="important-changes">
+<h2>Important Changes<a class="headerlink" href="#important-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>This version performs a fully database structure change, so <strong>it’s very important to make a full database backup using external tools like “mysqldump”</strong></p></li>
+<li><p>“config” directory is moved off to “/app/config”</p></li>
+<li><p>Composer PHP package manager is used to install and keep up-to-date sysPass dependencies</p></li>
+</ul>
+</div>
+<div class="section" id="process">
+<h2>Process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h2>
+<p>The following steps need to be performed in order to update sysPass:</p>
+<ol class="arabic simple">
+<li><p>Download or clone sysPass repository from either <a class="reference external" href="https://github.com/nuxsmin/sysPass/releases">https://github.com/nuxsmin/sysPass/releases</a> or <a class="reference external" href="https://github.com/nuxsmin/sysPass.git">https://github.com/nuxsmin/sysPass.git</a></p></li>
+<li><p>Set user and group permissions on sysPass directory</p></li>
+<li><p>Copy “config.xml”, “key.pem” y “pubkey.pem” from the old “…/config” directory to “…/app/config” directory</p></li>
+<li><p>From sysPass root directory, download and install Composer: <a class="reference external" href="https://getcomposer.org/download/">https://getcomposer.org/download/</a></p></li>
+<li><p>Install dependencies</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ php composer.phar install --no-dev
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Set up the correct permissions on directories. Please note that “config” and “backup” directories are now within “/app”</p></li>
+<li><p>Point your browser to sysPass web server URL</p></li>
+<li><p><strong>Perform a full database backup using external tools like “mysqldump”</strong></p></li>
+<li><p>Enter the upgrade key located in “app/config/config.xml” file within the “upgradeKey” tag</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="v3.1.html" class="btn btn-neutral float-right" title="3.1 Version" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="v2_1.html" class="btn btn-neutral float-left" title="2.1 Version" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        Last updated on Sep 06, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

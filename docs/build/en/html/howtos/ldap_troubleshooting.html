@@ -1,0 +1,281 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>LDAP Troubleshooting &mdash; sysPass 3.1.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Frequently Asked Questions" href="../faq.html" />
+    <link rel="prev" title="How to install and configure Nginx" href="nginx.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">Updating</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">HOWTOs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">How to test a sysPass update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restore.html">How to restore sysPass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure_mysql.html">Azure MySQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nginx.html">How to install and configure Nginx</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LDAP Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">HOWTOs</a> &raquo;</li>
+        
+      <li>LDAP Troubleshooting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/howtos/ldap_troubleshooting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ldap-troubleshooting">
+<h1>LDAP Troubleshooting<a class="headerlink" href="#ldap-troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p>PHP 7.2 now includes openssl directly compiled in.</p>
+<p>You may just check that with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ /bin/php -r <span class="s1">&#39;phpinfo();&#39;</span> <span class="p">|</span> grep ssl
+</pre></div>
+</div>
+<p>or if you’re like me using CentOS 7 and php via SCL:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ /opt/rh/rh-php72/root/bin/php -r <span class="s1">&#39;phpinfo();&#39;</span> <span class="p">|</span> grep ssl
+</pre></div>
+</div>
+<p>You may then also check if your linux box connects to your ldaps server with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ openssl s_client -connect yourldapsserver.domain.local:636
+</pre></div>
+</div>
+<p>or ldap server using TLS</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ openssl s_client -connect yourldapsserver.domain.loca:389 -tls1_2
+</pre></div>
+</div>
+<p>If those work, you may use ldapsearch to manually bind to your LDAP server and see what the problem might be.
+On CentOS, install it via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install openldap-clients
+</pre></div>
+</div>
+<p>Simple LDAP Query</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ldapseach -h yourldapserver.domain.local -p <span class="m">389</span> -b <span class="se">\&quot;</span><span class="nv">dc</span><span class="o">=</span>domain,dc<span class="o">=</span>local<span class="se">\&quot;</span> -D <span class="se">\&quot;</span><span class="nv">CN</span><span class="o">=</span>YourBindAccount,DC<span class="o">=</span>domain,DC<span class="o">=</span>local<span class="se">\&quot;</span> -W
+</pre></div>
+</div>
+<p>Add -Z to the ldapsearch line to switch to TLS.</p>
+<p>If you get</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ldap_start_tls</span><span class="p">:</span> <span class="n">Connect</span> <span class="n">error</span> <span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">additional</span> <span class="n">info</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span><span class="mi">14090086</span><span class="p">:</span><span class="n">SSL</span> <span class="n">routines</span><span class="p">:</span><span class="n">ssl3_get_server_certificate</span><span class="p">:</span><span class="n">certificate</span> <span class="n">verify</span> <span class="n">failed</span> <span class="p">(</span><span class="n">unable</span> <span class="n">to</span> <span class="n">get</span> <span class="n">local</span> <span class="n">issuer</span> <span class="n">certificate</span><span class="p">)</span>
+<span class="n">ldap_result</span><span class="p">:</span> <span class="n">Can</span><span class="s1">&#39;t contact LDAP server (-1)</span>
+</pre></div>
+</div>
+<p>Your certificate might be bad.
+You can override certificate checking in “/etc/openldap/ldap.conf” by adding line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TLS_REQCERT</span>     <span class="n">allow</span>
+</pre></div>
+</div>
+<p>Don’t forget to restart php-fpm (or apache if using mod_php) for those settings to take effect.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Thanks to &#64;deajan for this contribution</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../faq.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nginx.html" class="btn btn-neutral float-left" title="How to install and configure Nginx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        Last updated on Sep 06, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to install and configure Nginx &mdash; documentación de sysPass - 3.1.2</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="LDAP Troubleshooting" href="ldap_troubleshooting.html" />
+    <link rel="prev" title="Azure MySQL" href="azure_mysql.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">Updating</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">HOWTOs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">Cómo probar una actualización de sysPass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restore.html">How to restore sysPass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure_mysql.html">Azure MySQL</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How to install and configure Nginx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ldap_troubleshooting.html">LDAP Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Preguntas Frecuentes</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">HOWTOs</a> &raquo;</li>
+        
+      <li>How to install and configure Nginx</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/howtos/nginx.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-install-and-configure-nginx">
+<h1>How to install and configure Nginx<a class="headerlink" href="#how-to-install-and-configure-nginx" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Install required repositories and packages</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum -y install epel-release.noarch centos-release-scl centos-release-scl-rh scl-utils
+
+$ sudo yum -y install nginx rh-php70 rh-php70-php rh-php70-php-fpm rh-php70-php-ldap rh-php70-php-xml rh-php70-php-json rh-php70-php-gd rh-php70-php-pdo rh-php70-php-mbstring rh-php70-php-cli rh-php70-php-mysqlnd mod_ssl
+</pre></div>
+</div>
+<p>Configure Nginx «/etc/nginx/conf.d/syspass.conf» file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>server {
+  listen 80;
+
+  #server_name: This is the domain you will be using for your site. Instead of localhost, we will use the public facing domain and www version of the domain you want to use.
+  server_name syspass.foo.bar;
+
+  location / {
+    #root: This is the root directory for the site files.
+    root /var/www/syspass;
+    index index.html index.php;
+
+    #try_files: What we are doing here is telling the server to display a 404 error when a given file is not found.
+    try_files $uri $uri/ =404;
+  }
+
+  error_page 500 502 503 504 /50x.html;
+
+  location = /50x.html {
+    root html;
+  }
+
+  location ~ .php$ {
+    #root: This is the root directory for the site files.
+    root /var/www/syspass;
+    fastcgi_pass 127.0.0.1:9000;
+    fastcgi_index index.php;
+    include fastcgi_params;
+    fastcgi_param SCRIPT_NAME $fastcgi_script_name;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+  }
+}
+</pre></div>
+</div>
+<p>Configure PHP</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo sed -i <span class="s1">&#39;s/user = apache/user = nginx/g; s/group = apache/group = nginx/g;&#39;</span> /etc/opt/rh/rh-php70/php-fpm.d/www.conf
+$ sudo usermod -aG nginx apache
+</pre></div>
+</div>
+<p>Enable and start services</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl <span class="nb">enable</span> rh-php70-php-fpm
+$ sudo service rh-php70-php-fpm start
+$ sudo systemctl <span class="nb">enable</span> nginx
+$ sudo service nginx start
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Thanks to &#64;M1k13 for this contribution</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ldap_troubleshooting.html" class="btn btn-neutral float-right" title="LDAP Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="azure_mysql.html" class="btn btn-neutral float-left" title="Azure MySQL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        Actualizado por última vez en sept. 06, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

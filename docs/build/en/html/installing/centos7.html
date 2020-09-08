@@ -1,0 +1,398 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CentOS 7.x Installation &mdash; sysPass 3.1.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Docker Installation" href="docker.html" />
+    <link rel="prev" title="Debian 9 Installation" href="debian9.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="debian9.html">Debian 9 Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CentOS 7.x Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directories-and-permissions">Directories and permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selinux">SELinux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-dependencies">Installing dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-php-composer">Using PHP Composer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-configuration">Environment configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hostingmode.html">Hosting Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Installation</a> &raquo;</li>
+        
+      <li>CentOS 7.x Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/installing/centos7.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="centos-7-x-installation">
+<h1>CentOS 7.x Installation<a class="headerlink" href="#centos-7-x-installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Web server (Apache/Nginx/Lighttpd) with SSL enabled.</p></li>
+<li><p>MariaDB &gt;= 10.1</p></li>
+<li><p>PHP &gt;= 7.0 (7.1 or above recommended)</p></li>
+<li><dl class="simple">
+<dt>PHP modules</dt><dd><ul>
+<li><p>mysqlnd</p></li>
+<li><p>curl</p></li>
+<li><p>json</p></li>
+<li><p>gd</p></li>
+<li><p>xml</p></li>
+<li><p>mbstring</p></li>
+<li><p>intl</p></li>
+<li><p>readline</p></li>
+<li><p>ldap (optional)</p></li>
+<li><p>mcrypt (optional for importing older XML export files)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Package with latest sysPass version <a class="reference external" href="https://github.com/nuxsmin/sysPass/releases/latest">https://github.com/nuxsmin/sysPass/releases/latest</a></p></li>
+<li><p>Or clone sysPass repository from GitHub <a class="reference external" href="https://github.com/nuxsmin/sysPass.git">https://github.com/nuxsmin/sysPass.git</a></p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>CentOS 7 package installation (<a class="reference external" href="https://www.softwarecollections.org/en/scls/rhscl/rh-php70/">https://www.softwarecollections.org/en/scls/rhscl/rh-php70/</a>).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum -y install centos-release-scl.noarch
+$ sudo yum -y install rh-php71 rh-php71-php rh-php71-php-fpm httpd rh-mariadb102 wget
+$ sudo yum -y install rh-php71-php-gd rh-php71-php-intl rh-php71-php-json rh-php71-php-ldap rh-php71-php-mbstring rh-php71-php-mysqlnd rh-php71-php-opcache rh-php71-php-pdo rh-php71-php-xml rh-php71-php-zip
+</pre></div>
+</div>
+<p>Automated start/stop Apache web server and MariaDB server.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl <span class="nb">enable</span> httpd.service
+$ sudo systemctl <span class="nb">enable</span> mariadb.service
+$ sudo systemctl start httpd.service
+$ sudo systemctl start mariadb.service
+</pre></div>
+</div>
+<p>Setting up MariaDB.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo /usr/bin/mysql_secure_installation
+</pre></div>
+</div>
+<p>Enabling firewall ports.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo firewall-cmd --permanent --zone<span class="o">=</span>public --add-service<span class="o">=</span>http
+$ sudo firewall-cmd --permanent --zone<span class="o">=</span>public --add-service<span class="o">=</span>https
+$ sudo firewall-cmd --reload
+</pre></div>
+</div>
+<p>Optional for enabling SSL.</p>
+<p>In order to increase your sysPass instance security, please consider to use SSL. See <a class="reference internal" href="../application/security.html"><span class="doc">Security</span></a> and the following resources for Debian:</p>
+<ul class="simple">
+<li><p>Sites only accessible from LAN: <a class="reference external" href="https://doc.debian.org/configuration/Self-Signed_Certificate">https://doc.debian.org/configuration/Self-Signed_Certificate</a></p></li>
+<li><p>Sites accessible from Internet, you could use Let’s Encrypt, see <a class="reference external" href="https://certbot.eff.org/">https://certbot.eff.org/</a></p></li>
+</ul>
+</div>
+<div class="section" id="directories-and-permissions">
+<h2>Directories and permissions<a class="headerlink" href="#directories-and-permissions" title="Permalink to this headline">¶</a></h2>
+<p>Create a directory for sysPass within the web server root.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo mkdir /var/www/html/syspass
+</pre></div>
+</div>
+<p>If you go with the packaged version, download and unpack sysPass files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /var/www/html/syspass
+$ sudo tar xzf syspass.tar.gz
+</pre></div>
+</div>
+<p>If you go with Git cloned version, clone sysPass GitHub repository.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo git clone https://github.com/nuxsmin/sysPass.git  /var/www/html/syspass
+</pre></div>
+</div>
+<p>Setup directories permissions. The owner should match the web server running user.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo chown apache -R /var/www/html/syspass
+$ sudo chmod <span class="m">750</span> /var/www/html/syspass/app/config /var/www/html/syspass/app/backup
+</pre></div>
+</div>
+</div>
+<div class="section" id="selinux">
+<h2>SELinux<a class="headerlink" href="#selinux" title="Permalink to this headline">¶</a></h2>
+<p>sysPass needs to be allowed to write its configuration and some other files (backup, cache, temp, etc). We have 2 choices:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please, run only one of the choices</p>
+</div>
+<ul class="simple">
+<li><p>Change SELinux’s context and user:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo setsebool -P httpd_can_connect_ldap <span class="m">1</span>
+$ sudo chcon -R -t httpd_sys_rw_content_t /var/www/html/syspass/app/<span class="o">{</span>config,backup,cache,tmp<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Disable SELinux by editing the file “/etc/sysconfig/selinux” and setting “SELINUX” variable’s value to “permissive”. You need to restart the system.</p></li>
+</ul>
+</div>
+<div class="section" id="installing-dependencies">
+<h2>Installing dependencies<a class="headerlink" href="#installing-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>PHP Composer is needed to keep up-to-date dependencies and an easy way to apply security or functional patches to them.</p>
+<p>You can either download the dependencies using Composer itself or by getting the latest “vendor.tar.gz” package from the release page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t have any Internet access from the server, the vendor package will provide all the release dependencies and you don’t need to deal with composer commands.</p>
+</div>
+<div class="section" id="using-php-composer">
+<h3>Using PHP Composer<a class="headerlink" href="#using-php-composer" title="Permalink to this headline">¶</a></h3>
+<p>From sysPass root directory, download and install Composer (<a class="reference external" href="https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md">https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md</a>)</p>
+<p>Create a bash script called “install_composer.sh” and paste this code in it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="nv">EXPECTED_SIGNATURE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>wget -q -O - https://composer.github.io/installer.sig<span class="k">)</span><span class="s2">&quot;</span>
+php -r <span class="s2">&quot;copy(&#39;https://getcomposer.org/installer&#39;, &#39;composer-setup.php&#39;);&quot;</span>
+<span class="nv">ACTUAL_SIGNATURE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>php -r <span class="s2">&quot;echo hash_file(&#39;sha384&#39;, &#39;composer-setup.php&#39;);&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$EXPECTED_SIGNATURE</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$ACTUAL_SIGNATURE</span><span class="s2">&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+    &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="nb">echo</span> <span class="s1">&#39;ERROR: Invalid installer signature&#39;</span>
+    rm composer-setup.php
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+php composer-setup.php --quiet
+<span class="nv">RESULT</span><span class="o">=</span><span class="nv">$?</span>
+rm composer-setup.php
+<span class="nb">exit</span> <span class="nv">$RESULT</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chmod +x install_composer.sh
+$ ./install_composer.sh
+</pre></div>
+</div>
+<p>Then install sysPass dependencies</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ php composer.phar install --no-dev
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="environment-configuration">
+<h2>Environment configuration<a class="headerlink" href="#environment-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Please, point your web browser to the following URL and follow the installer steps</p>
+<p><a class="reference external" href="https://IP_OR_SERVER_ADDRESS/syspass/index.php">https://IP_OR_SERVER_ADDRESS/syspass/index.php</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More information about how sysPass works on <a class="reference internal" href="../application/index.html"><span class="doc">Application</span></a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It’s very advisable to take a look to security advices on <a class="reference internal" href="../application/security.html"><span class="doc">Security</span></a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="docker.html" class="btn btn-neutral float-right" title="Docker Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="debian9.html" class="btn btn-neutral float-left" title="Debian 9 Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        Last updated on Sep 06, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
