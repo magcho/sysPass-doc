@@ -1,0 +1,304 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Features(機能) &mdash; sysPass 3.1.2 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="Plugins" href="plugins.html" />
+    <link rel="prev" title="API" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Application</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">暗号化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#diagrams">Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">セキュリティー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication(認証)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html">Authorization(認可)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permissions(権限)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html">アカウント検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Features(機能)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">バックアップ手順</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">アップデート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Application</a> &raquo;</li>
+        
+      <li>Features(機能)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/application/features.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="features">
+<h1>Features(機能)<a class="headerlink" href="#features" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>sysPassは以下の機能を備えています</p>
+<ul class="simple">
+<li><p><strong>Security</strong></p>
+<ul>
+<li><p>データベース認証</p></li>
+<li><p>LDAP directory認証</p></li>
+<li><p>Basic認証</p></li>
+<li><p>２要素認証 (using <a class="reference external" href="https://github.com/sysPass/plugin-Authenticator">Authenticator Plugin</a>)</p></li>
+</ul>
+</li>
+<li><p><strong>Permissions</strong></p>
+<ul>
+<li><p>プロファイルによるアクセスコントロール</p></li>
+<li><p>アプリケーション全体の管理者権限を持つユーザー</p></li>
+<li><p>アカウント管理権限を持つユーザー</p></li>
+<li><p>ユーザーごとのアクセスコントロール(読み込み or 書き込み)</p></li>
+<li><p>アカウントグループごとのアクセスコントロール(読み込み or 書き込み)</p></li>
+</ul>
+</li>
+<li><p><strong>Items</strong></p>
+<ul>
+<li><p>アカウント情報・クライアント情報・カテゴリー情報・ユーザー情報にカスタムフィールドを設定できます。また、このフィールドは暗号化/非暗号化を設定できます</p></li>
+<li><p>ログインなしで共有できるアカウントの公開リンクを作成できます</p></li>
+<li><p>アカウントに有効期限を設定できます</p></li>
+<li><p>パスワードだけでなくファイルも保存できます</p></li>
+<li><p>アカウントをタグで管理できます</p></li>
+<li><p>クライアントごとに整理することができます</p></li>
+<li><p>カテゴリーで整理することもできます</p></li>
+<li><p>共有リンクも細かく設定できます</p></li>
+<li><p>APIからsysPassを利用することができます</p></li>
+<li><p>アカウントを管理することができます</p></li>
+<li><p>アカウントの変更履歴も保持しているため、前まで使っていたパスワードを確認することもできます</p></li>
+<li><p>プラグインで機能を追加することができます</p></li>
+<li><p>ユーザーごとに設定できる項目があります</p></li>
+<li><p>ユーザーをユーザーグループで管理できます</p></li>
+<li><p>ユーザーをプロファイルで管理できます</p></li>
+<li><p>アプリ内通知機能があります</p></li>
+</ul>
+</li>
+<li><p><strong>Configuration</strong></p>
+<ul>
+<li><p>多言語対応しています</p></li>
+<li><p>ブラウザを用いてUIで設定を変更できます</p></li>
+<li><p>設定の変更履歴のログを残します</p></li>
+<li><p>プロキシー設定をすることができます</p></li>
+<li><p>アカウントの設定ができます</p></li>
+<li><p>公開リンクの設定ができます</p></li>
+<li><p>Wikiの設定ができます</p></li>
+<li><p>LDAPの設定ができます</p></li>
+<li><p>LDAPを用いてユーザーやグループをインポートできます</p></li>
+<li><p>メール通知機能があります</p></li>
+<li><p>マスターパスワードを変更することができます</p></li>
+<li><p>仮マスターパスワードを用いることができます</p></li>
+<li><p>アプリケーションとデータベースのバックアップを取ることができます</p></li>
+<li><p>XML形式でエクスポートできます。また、これを暗号化しておくこともできます</p></li>
+<li><p>KeePassでエクスポートしたXML/CSVファイルをsysPassにインポートすることができます</p></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        最終更新: 9月 29, 2020
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

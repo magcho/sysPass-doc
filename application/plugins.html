@@ -1,0 +1,1672 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Plugins &mdash; sysPass 3.1.2 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="バックアップ手順" href="backup.html" />
+    <link rel="prev" title="Features(機能)" href="features.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Application</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">暗号化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#diagrams">Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">セキュリティー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication(認証)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html">Authorization(認可)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permissions(権限)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html">アカウント検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Features(機能)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#init">init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updateevent">updateEvent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getevents">getEvents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getjsresources">getJsResources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getauthor">getAuthor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getversion">getVersion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getcompatibleversion">getCompatibleVersion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getcssresources">getCssResources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getname">getName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getdata">getData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onload">onLoad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upgrade">upgrade</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#events">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">バックアップ手順</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">アップデート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Application</a> &raquo;</li>
+        
+      <li>Plugins</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/application/plugins.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plugins">
+<h1>Plugins<a class="headerlink" href="#plugins" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>sysPassでは <a class="reference external" href="https://en.wikipedia.org/wiki/Observer_pattern">observer pattern</a> に基づいてプラグインによる機能拡張をすることができます。</p>
+<p>以下の基本事項を守りplugins’ディレクトリに配置するとsysPassのプラグインとして利用できます</p>
+<p>ディレクトリ名とファイル名は以下のようにする必要があります</p>
+<ol class="arabic simple">
+<li><p>プラグイン名と同じ名前のディレクトリを作成してください。<strong>(例 Authenticator)</strong></p></li>
+<li><p>プラグイン名をLowoercaseにした名前の.poファイルを作成してください。(例 authenticator.po)</p></li>
+<li><p>Viewの名前はMVCパターンのController名と同じものにしてください。ControllerのコードでViewの名前を指定することで別の名前にすることもできます</p></li>
+<li><p>‘version.json’ファイルはアップデートがないかを確認するためにJavascriptによって参照されます。</p></li>
+</ol>
+<p>plugin.phpファイルはobserverパターンに従ってsysPassからのイベントを受け取るメインクラスです。このファイルの’SPPluginPluginBase’クラスを拡張してプラグインを開発してください。</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>次のメソッドを’Plugin’クラスに実装する必要があります</p>
+<div class="section" id="init">
+<h3>init<a class="headerlink" href="#init" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>プラグインが呼び出される一番初めに毎回このメソッドが呼び出されます。このメソッドでsysPassからオブジェクトを注入します。</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * Plugin initialization</span>
+<span class="x"> *</span>
+<span class="x"> * @param ContainerInterface $dic</span>
+<span class="x"> */</span>
+<span class="x">public function init(ContainerInterface $dic)</span>
+<span class="x">{</span>
+<span class="x">    $this-&gt;base = dirname(__DIR__);</span>
+<span class="x">    $this-&gt;themeDir = $this-&gt;base . DIRECTORY_SEPARATOR . &#39;themes&#39; . DIRECTORY_SEPARATOR . $dic-&gt;get(ThemeInterface::class)-&gt;getThemeName();</span>
+
+<span class="x">    $this-&gt;setLocales();</span>
+
+<span class="x">    $this-&gt;dic = $dic;</span>
+
+<span class="x">    $this-&gt;session = $this-&gt;dic-&gt;get(ContextInterface::class);</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updateevent">
+<h3>updateEvent<a class="headerlink" href="#updateevent" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このメソッドにsysPassからのイベントが通知されます</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * Update event</span>
+<span class="x"> *</span>
+<span class="x"> * @param string $event Event&#39;s name</span>
+<span class="x"> * @param mixed  $object</span>
+<span class="x"> */</span>
+<span class="x">public function updateEvent($event, $object) {}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getevents">
+<h3>getEvents<a class="headerlink" href="#getevents" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このメソッドでsysPassがプラグインに通知するイベントを決定します。プラグインでサブスクライブしたいイベントを配列で返してください</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * Returns the events implemented by the observer</span>
+<span class="x"> *</span>
+<span class="x"> * @return array</span>
+<span class="x"> */</span>
+<span class="x">public function getEvents()</span>
+<span class="x">{</span>
+<span class="x">    return [&#39;show.userSettings&#39;, &#39;login.finish&#39;];</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getjsresources">
+<h3>getJsResources<a class="headerlink" href="#getjsresources" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>プラグインの動作に必要なJavascriptファイルなどのファイル名を配列で返してください</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * Returns JS resources required by the plugin</span>
+<span class="x"> *</span>
+<span class="x"> * @return array</span>
+<span class="x"> */</span>
+<span class="x">public function getJsResources()</span>
+<span class="x">{</span>
+<span class="x">    return [&#39;plugin.min.js&#39;];</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getauthor">
+<h3>getAuthor<a class="headerlink" href="#getauthor" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このプラグインの開発者の名前を返してください</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * Returns the plugin&#39;s author</span>
+<span class="x"> *</span>
+<span class="x"> * @return string</span>
+<span class="x"> */</span>
+<span class="x">public function getAuthor()</span>
+<span class="x">{</span>
+<span class="x">    return &#39;Rubén D.&#39;;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getversion">
+<h3>getVersion<a class="headerlink" href="#getversion" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このプライグインのバーションを配列で返してください</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * Returns the plugin&#39;s version</span>
+<span class="x"> *</span>
+<span class="x"> * @return array</span>
+<span class="x"> */</span>
+<span class="x">public function getVersion()</span>
+<span class="x">{</span>
+<span class="x">    return [1, 0];</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getcompatibleversion">
+<h3>getCompatibleVersion<a class="headerlink" href="#getcompatibleversion" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このプラグインの動作を保証しているsysPassの最低バージョンを配列で返してください</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * Returns the minimum sysPass compatible version</span>
+<span class="x"> *</span>
+<span class="x"> * @return array</span>
+<span class="x"> */</span>
+<span class="x">public function getCompatibleVersion()</span>
+<span class="x">{</span>
+<span class="x">    return [2, 0];</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getcssresources">
+<h3>getCssResources<a class="headerlink" href="#getcssresources" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>プラグインの動作に必要なCSSファイルなどのファイル名を配列で返してください</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * Returns the CSS resources required by the plugin</span>
+<span class="x"> *</span>
+<span class="x"> * @return array</span>
+<span class="x"> */</span>
+<span class="x">public function getCssResources()</span>
+<span class="x">{</span>
+<span class="x">    return [];</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getname">
+<h3>getName<a class="headerlink" href="#getname" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>プラグイン名を返却してください</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * Returns the plugin&#39;s name</span>
+<span class="x"> *</span>
+<span class="x"> * @return string</span>
+<span class="x"> */</span>
+<span class="x">public function getName()</span>
+<span class="x">{</span>
+<span class="x">    return self::PLUGIN_NAME;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getdata">
+<h3>getData<a class="headerlink" href="#getdata" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>プラグインデータを返却してください</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * @return AuthenticatorData</span>
+<span class="x"> */</span>
+<span class="x">public function getData()</span>
+<span class="x">{</span>
+<span class="x">    if ($this-&gt;data === null</span>
+<span class="x">        &amp;&amp; $this-&gt;session-&gt;isLoggedIn()</span>
+<span class="x">        &amp;&amp; $this-&gt;pluginOperation !== null</span>
+<span class="x">    ) {</span>
+<span class="x">        $this-&gt;loadData();</span>
+<span class="x">    }</span>
+
+<span class="x">    return parent::getData();</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="onload">
+<h3>onLoad<a class="headerlink" href="#onload" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>プラグインの読み込みが終わった後にこのメソッドが呼び出されます</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * onLoad</span>
+<span class="x"> */</span>
+<span class="x">public function onLoad()</span>
+<span class="x">{</span>
+<span class="x">    $this-&gt;loadData();</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="upgrade">
+<h3>upgrade<a class="headerlink" href="#upgrade" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>現在のsysPassのバージョンを受けとり、プラグインのアップデートが必要な場合はタスクを実行するメソッド。このメソッドは、新しいsysPassバージョンが検出されるたびに呼び出されます。</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * @param string          $version</span>
+<span class="x"> * @param PluginOperation $pluginOperation</span>
+<span class="x"> * @param mixed           $extra</span>
+<span class="x"> *</span>
+<span class="x"> * @throws Services\AuthenticatorException</span>
+<span class="x"> */</span>
+<span class="x">public function upgrade(string $version, PluginOperation $pluginOperation, $extra = null)</span>
+<span class="x">{</span>
+<span class="x">    switch ($version) {</span>
+<span class="x">        case &#39;310.19012201&#39;:</span>
+<span class="x">            (new UpgradeService($pluginOperation))-&gt;upgrade_310_19012201($extra);</span>
+<span class="x">            break;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">namespace SP\Modules\Web\Plugins\Authenticator;</span>
+
+<span class="x">use Psr\Container\ContainerInterface;</span>
+<span class="x">use SP\Core\Context\ContextInterface;</span>
+<span class="x">use SP\Core\Context\SessionContext;</span>
+<span class="x">use SP\Core\Events\Event;</span>
+<span class="x">use SP\Core\UI\ThemeInterface;</span>
+<span class="x">use SP\Modules\Web\Plugins\Authenticator\Controllers\PreferencesController;</span>
+<span class="x">use SP\Modules\Web\Plugins\Authenticator\Models\AuthenticatorData;</span>
+<span class="x">use SP\Modules\Web\Plugins\Authenticator\Services\UpgradeService;</span>
+<span class="x">use SP\Modules\Web\Plugins\Authenticator\Util\PluginContext;</span>
+<span class="x">use SP\Mvc\Controller\ExtensibleTabControllerInterface;</span>
+<span class="x">use SP\Plugin\PluginBase;</span>
+<span class="x">use SP\Plugin\PluginOperation;</span>
+<span class="x">use SplSubject;</span>
+
+<span class="x">/**</span>
+<span class="x"> * Class Plugin</span>
+<span class="x"> *</span>
+<span class="x"> * @package SP\Modules\Web\Plugins\Authenticator</span>
+<span class="x"> * @property AuthenticatorData $data</span>
+<span class="x"> */</span>
+<span class="x">class Plugin extends PluginBase</span>
+<span class="x">{</span>
+<span class="x">    const PLUGIN_NAME = &#39;Authenticator&#39;;</span>
+<span class="x">    const VERSION_URL = &#39;https://raw.githubusercontent.com/sysPass/plugin-Authenticator/master/version.json&#39;;</span>
+<span class="x">    const RECOVERY_GRACE_TIME = 86400;</span>
+<span class="x">    /**</span>
+<span class="x">     * @var ContainerInterface</span>
+<span class="x">     */</span>
+<span class="x">    private $dic;</span>
+<span class="x">    /**</span>
+<span class="x">     * @var SessionContext</span>
+<span class="x">     */</span>
+<span class="x">    private $session;</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Receive update from subject</span>
+<span class="x">     *</span>
+<span class="x">     * @link  http://php.net/manual/en/splobserver.update.php</span>
+<span class="x">     *</span>
+<span class="x">     * @param SplSubject $subject &lt;p&gt;</span>
+<span class="x">     *                            The &lt;b&gt;SplSubject&lt;/b&gt; notifying the observer of an update.</span>
+<span class="x">     *                            &lt;/p&gt;</span>
+<span class="x">     *</span>
+<span class="x">     * @return void</span>
+<span class="x">     * @since 5.1.0</span>
+<span class="x">     */</span>
+<span class="x">    public function update(SplSubject $subject)</span>
+<span class="x">    {</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Plugin initialization</span>
+<span class="x">     *</span>
+<span class="x">     * @param ContainerInterface $dic</span>
+<span class="x">     */</span>
+<span class="x">    public function init(ContainerInterface $dic)</span>
+<span class="x">    {</span>
+<span class="x">        $this-&gt;base = dirname(__DIR__);</span>
+<span class="x">        $this-&gt;themeDir = $this-&gt;base . DIRECTORY_SEPARATOR . &#39;themes&#39; . DIRECTORY_SEPARATOR . $dic-&gt;get(ThemeInterface::class)-&gt;getThemeName();</span>
+
+<span class="x">        $this-&gt;setLocales();</span>
+
+<span class="x">        $this-&gt;dic = $dic;</span>
+
+<span class="x">        $this-&gt;session = $this-&gt;dic-&gt;get(ContextInterface::class);</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Updating event</span>
+<span class="x">     *</span>
+<span class="x">     * @param string $eventType Nombre del evento</span>
+<span class="x">     * @param Event  $event     Objeto del evento</span>
+<span class="x">     *</span>
+<span class="x">     * @throws \SP\Core\Exceptions\InvalidClassException</span>
+<span class="x">     * @throws \Exception</span>
+<span class="x">     */</span>
+<span class="x">    public function updateEvent($eventType, Event $event)</span>
+<span class="x">    {</span>
+<span class="x">        switch ($eventType) {</span>
+<span class="x">            case &#39;show.userSettings&#39;:</span>
+<span class="x">                $this-&gt;loadData();</span>
+<span class="x">                (new PreferencesController(</span>
+<span class="x">                    $event-&gt;getSource(ExtensibleTabControllerInterface::class),</span>
+<span class="x">                    $this,</span>
+<span class="x">                    $this-&gt;dic)</span>
+<span class="x">                )-&gt;setUp();</span>
+<span class="x">                break;</span>
+<span class="x">            case &#39;login.finish&#39;:</span>
+<span class="x">                $this-&gt;loadData();</span>
+<span class="x">                $this-&gt;checkLogin($event);</span>
+<span class="x">                break;</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Load plugin&#39;s data for current user</span>
+<span class="x">     */</span>
+<span class="x">    private function loadData()</span>
+<span class="x">    {</span>
+<span class="x">        try {</span>
+<span class="x">            $this-&gt;data = $this-&gt;pluginOperation-&gt;get(</span>
+<span class="x">                $this-&gt;session-&gt;getUserData()-&gt;getId(),</span>
+<span class="x">                AuthenticatorData::class</span>
+<span class="x">            );</span>
+<span class="x">        } catch (\Exception $e) {</span>
+<span class="x">            processException($e);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Check 2FA within log in</span>
+<span class="x">     *</span>
+<span class="x">     * @param Event $event</span>
+<span class="x">     *</span>
+<span class="x">     * @throws \SP\Core\Context\ContextException</span>
+<span class="x">     */</span>
+<span class="x">    private function checkLogin(Event $event)</span>
+<span class="x">    {</span>
+<span class="x">        $pluginContext = $this-&gt;dic-&gt;get(PluginContext::class);</span>
+
+<span class="x">        if ($this-&gt;data !== null</span>
+<span class="x">            &amp;&amp; $this-&gt;data-&gt;isTwofaEnabled()</span>
+<span class="x">        ) {</span>
+<span class="x">            $pluginContext-&gt;setTwoFApass(false);</span>
+<span class="x">            $this-&gt;session-&gt;setAuthCompleted(false);</span>
+
+<span class="x">            $eventData = $event-&gt;getEventMessage()-&gt;getExtra();</span>
+
+<span class="x">            if (isset($eventData[&#39;redirect&#39;][0])</span>
+<span class="x">                &amp;&amp; is_callable($eventData[&#39;redirect&#39;][0])</span>
+<span class="x">            ) {</span>
+<span class="x">                $this-&gt;session-&gt;setTrasientKey(&#39;redirect&#39;, $eventData[&#39;redirect&#39;][0](&#39;authenticatorLogin/index&#39;));</span>
+<span class="x">            } else {</span>
+<span class="x">                $this-&gt;session-&gt;setTrasientKey(&#39;redirect&#39;, &#39;index.php?r=authenticatorLogin/index&#39;);</span>
+<span class="x">            }</span>
+<span class="x">        } else {</span>
+<span class="x">            $pluginContext-&gt;setTwoFApass(true);</span>
+<span class="x">            $this-&gt;session-&gt;setAuthCompleted(true);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * @return AuthenticatorData</span>
+<span class="x">     */</span>
+<span class="x">    public function getData()</span>
+<span class="x">    {</span>
+<span class="x">        if ($this-&gt;data === null</span>
+<span class="x">            &amp;&amp; $this-&gt;session-&gt;isLoggedIn()</span>
+<span class="x">            &amp;&amp; $this-&gt;pluginOperation !== null</span>
+<span class="x">        ) {</span>
+<span class="x">            $this-&gt;loadData();</span>
+<span class="x">        }</span>
+
+<span class="x">        return parent::getData();</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Returns the events implemented by the observer</span>
+<span class="x">     *</span>
+<span class="x">     * @return array</span>
+<span class="x">     */</span>
+<span class="x">    public function getEvents()</span>
+<span class="x">    {</span>
+<span class="x">        return [&#39;show.userSettings&#39;, &#39;login.finish&#39;];</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Returns the JS resources required by the plugin</span>
+<span class="x">     *</span>
+<span class="x">     * @return array</span>
+<span class="x">     */</span>
+<span class="x">    public function getJsResources()</span>
+<span class="x">    {</span>
+<span class="x">        return [&#39;plugin.min.js&#39;];</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Returns the plugin&#39;s author</span>
+<span class="x">     *</span>
+<span class="x">     * @return string</span>
+<span class="x">     */</span>
+<span class="x">    public function getAuthor()</span>
+<span class="x">    {</span>
+<span class="x">        return &#39;Rubén D.&#39;;</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Returns the plugin&#39;s version</span>
+<span class="x">     *</span>
+<span class="x">     * @return array</span>
+<span class="x">     */</span>
+<span class="x">    public function getVersion()</span>
+<span class="x">    {</span>
+<span class="x">        return [2, 1, 0];</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Returns the sysPass compatible version</span>
+<span class="x">     *</span>
+<span class="x">     * @return array</span>
+<span class="x">     */</span>
+<span class="x">    public function getCompatibleVersion()</span>
+<span class="x">    {</span>
+<span class="x">        return [3, 1];</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Returns the CSS resources required by the plugin</span>
+<span class="x">     *</span>
+<span class="x">     * @return array</span>
+<span class="x">     */</span>
+<span class="x">    public function getCssResources()</span>
+<span class="x">    {</span>
+<span class="x">        return [&#39;plugin.min.css&#39;];</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Returns the plugin&#39;s name</span>
+<span class="x">     *</span>
+<span class="x">     * @return string</span>
+<span class="x">     */</span>
+<span class="x">    public function getName()</span>
+<span class="x">    {</span>
+<span class="x">        return self::PLUGIN_NAME;</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Removes the data for the given item&#39;s Id</span>
+<span class="x">     *</span>
+<span class="x">     * @param $id</span>
+<span class="x">     *</span>
+<span class="x">     * @throws \SP\Core\Exceptions\ConstraintException</span>
+<span class="x">     * @throws \SP\Core\Exceptions\QueryException</span>
+<span class="x">     * @throws \SP\Repositories\NoSuchItemException</span>
+<span class="x">     */</span>
+<span class="x">    public function deleteDataForId($id)</span>
+<span class="x">    {</span>
+<span class="x">        $this-&gt;pluginOperation-&gt;delete((int)$id);</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * onLoad</span>
+<span class="x">     */</span>
+<span class="x">    public function onLoad()</span>
+<span class="x">    {</span>
+<span class="x">        $this-&gt;loadData();</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * @param string          $version</span>
+<span class="x">     * @param PluginOperation $pluginOperation</span>
+<span class="x">     * @param mixed           $extra</span>
+<span class="x">     *</span>
+<span class="x">     * @throws Services\AuthenticatorException</span>
+<span class="x">     */</span>
+<span class="x">    public function upgrade(string $version, PluginOperation $pluginOperation, $extra = null)</span>
+<span class="x">    {</span>
+<span class="x">        switch ($version) {</span>
+<span class="x">            case &#39;310.19012201&#39;:</span>
+<span class="x">                (new UpgradeService($pluginOperation))-&gt;upgrade_310_19012201($extra);</span>
+<span class="x">                break;</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="events">
+<h2>Events<a class="headerlink" href="#events" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プラグインがサブスクライブできるイベントは以下の通りです。</p>
+<p>sysPassがupdateEventを呼び出す際に、プラグインに渡す追加データを含む’SPCoreEventsEventMessage’クラスが含まれる場合があります</p>
+<p>現在のsysPassのバージョンで生成されるイベントは以下の通りです</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 18%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Event</p></th>
+<th class="head"><p>Class</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>acl.deny</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>check.notification</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>check.tempMasterPassword</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>clear.eventlog</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>clear.track</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>copy.account.pass</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>create.account</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>create.authToken</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>create.category</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>create.client</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>create.customField</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>create.itemPreset</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>create.notification</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>create.plugin</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>create.publicLink</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>create.publicLink.account</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>create.tag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>create.tempMasterPassword</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>create.user</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>create.userGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>create.userProfile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>database.query</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>database.rollback</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>database.transaction.begin</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>database.transaction.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>database.transaction.rollback</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.account</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.account.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.accountFile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.accountFile.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.accountHistory</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.accountHistory.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.authToken</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.authToken.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.category</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.client</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.client.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.customField</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.customField.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.itemPreset</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.notification</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.notification.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.plugin</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.plugin.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.publicLink</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.publicLink.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.tag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.tag.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.user</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.user.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.userGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.userGroup.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>delete.userProfile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delete.userProfile.selection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>download.accountFile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>download.backupAppFile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>download.backupDbFile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>download.configBackupFile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>download.exportFile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>download.logFile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.account</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.account.bulk</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.account.pass</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.account.restore</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.authToken</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.category</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.client</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.customField</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.itemPreset</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.notification</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.plugin.available</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.plugin.disable</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.plugin.enable</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.plugin.reset</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.plugin.unavailable</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.publicLink.refresh</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.tag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.user</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.user.pass</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.user.password</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>edit.userGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>edit.userProfile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>expire.tempMasterPassword</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>import.ldap.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>import.ldap.groups</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>import.ldap.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>import.ldap.users</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ldap.bind</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ldap.check.connection</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ldap.check.group</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ldap.check.params</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ldap.connect</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ldap.connect.tls</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ldap.getAttributes</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ldap.search</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ldap.search.group</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ldap.unbind</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>list.accountFile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>login.auth.browser</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>login.auth.database</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>login.auth.ldap</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>login.checkUser.changePass</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>login.checkUser.disabled</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>login.finish</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>login.info</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>login.masterPass</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>login.masterPass.temporary</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>login.preferences.load</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>login.session.load</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>plugin.load</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>plugin.load.error</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>refresh.authToken</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>refresh.masterPassword</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>refresh.masterPassword.hash</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>request.account</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>request.user.passReset</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>reset.min.css</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>restore.accountHistory</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>run.backup.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>run.backup.process</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>run.backup.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>run.export.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>run.export.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>run.export.verify</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>run.import.csv</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>run.import.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>run.import.keepass</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>run.import.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>run.import.syspass</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>save.config.account</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>save.config.dokuwiki</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>save.config.general</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>save.config.ldap</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>save.config.mail</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>save.config.wiki</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>search.category</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>search.client</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>search.tag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>search.userGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>send.mail</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>send.mail.check</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>session.cookie_httponly</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>session.gc_maxlifetime</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>session.save_handler</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>session.timeout</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.account</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.account.bulkEdit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.account.copy</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.account.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.account.delete</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.account.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.account.editpass</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.account.history</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.account.link</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.account.pass</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.account.request</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.account.search</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.accountFile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.authToken</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.authToken.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.authToken.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.category</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.category.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.category.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.client</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.client.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.client.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.config</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.customField</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.customField.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.customField.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.itemPreset</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.itemPreset.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.itemPreset.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.itemlist.accesses</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.itemlist.items</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.itemlist.security</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.notification</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.notification.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.notification.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.plugin</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.publicLink</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.publicLink.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.publicLink.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.tag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.tag.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.tag.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.user</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.user.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.user.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.user.editPass</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.userGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.userGroup.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.userGroup.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.userProfile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.userProfile.create</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>show.userProfile.edit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>show.userSettings</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>track.add</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>track.delay</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>unlock.track</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>update.masterPassword.customFields</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>update.masterPassword.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>update.masterPassword.hash</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>update.masterPassword.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>upgrade.app.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>upgrade.app.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>upgrade.authToken.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>upgrade.authToken.process</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>upgrade.authToken.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>upgrade.config.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>upgrade.config.process</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>upgrade.config.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>upgrade.customField.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>upgrade.customField.process</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>upgrade.customField.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>upgrade.db.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>upgrade.db.process</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>upgrade.db.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>upgrade.publicLink.end</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>upgrade.publicLink.process</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>upgrade.publicLink.start</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>upload.accountFile</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>wiki.aclCheck</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>wiki.getPage</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>wiki.getPageHTML</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>wiki.getPageInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="backup.html" class="btn btn-neutral float-right" title="バックアップ手順" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="features.html" class="btn btn-neutral float-left" title="Features(機能)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        最終更新: 9月 29, 2020
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

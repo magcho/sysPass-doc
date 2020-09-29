@@ -1,0 +1,326 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>はじめに &mdash; sysPass 3.1.2 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="インストール" href="installing/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installing/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/index.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application/index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updating/index.html">アップデート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>はじめに</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>はじめに<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>sysPassは様々なパスワードを安全に一箇所で管理し、チームで共有することを可能としたパスワードマネージャです。sysPass自体はPHPで実装されています。</p>
+<div class="section" id="features">
+<h2>機能<a class="headerlink" href="#features" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>AES-256 CTR を用いてパスワードを暗号化できます</p></li>
+<li><p>HTML5とAJAXで構築されたマテリアルデザインのUIでモダンに使えます</p></li>
+<li><p>個人だけでなく、複数のユーザー・グループごとに権限設定ができます</p></li>
+<li><p>ユーザーにあわせて29種もの細かい権限設定ができます</p></li>
+<li><p>MySQL/MariaDB・OpenLDAPおよびActive Directory認証に対応しています</p></li>
+<li><p>ウェブアプリ内やメールでのアクティビティ通知が設定できます</p></li>
+<li><p>ログインの必要のないページの作成と共有URLの発行ができます</p></li>
+<li><p>保存したパスワードの変更履歴を保持しているので、うっかり変更してしまっても復元できます</p></li>
+<li><p>保存できるのはパスワードだけではありません、ファイルも合わせて保存できます</p></li>
+<li><p>多言語対応しています</p></li>
+<li><p>XML形式で保存しているパスワードをエクスポート・バックアップできます</p></li>
+<li><p>CEF形式でシステムログやアクションをを記録したり、そのログを送信できます</p></li>
+<li><p>API連携により様々なアプリケーションを開発・利用できます</p></li>
+<li><p>KeePassでエクスポートしたCSVを読み込むことができます</p></li>
+<li><p>面倒な作業なしに簡単にインストールできます</p></li>
+</ul>
+</div>
+<div class="section" id="what-syspass-does-not-do">
+<h2>sysPassで行わないこと<a class="headerlink" href="#what-syspass-does-not-do" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>パスワードを <strong>暗号化せず</strong> 平文で保存することはありません</p></li>
+<li><p>外部サービスに情報を送信することはありません</p></li>
+<li><p>パスワードを個別に暗号化することはありません。すべてのパスワードはマスターパスワードを用いて暗号化されています</p></li>
+<li><p>サーバが自動で保存したパスワードを変更する機能はありません</p></li>
+<li><p>何のサービスのパスワードを保存しているか探せるようにサービス名などはあえて暗号化しません。暗号化するのはパスワード・カスタムフィールド・プラグインのデータなどです</p></li>
+<li><p>このsysPass にはスーパー牛さんパワーなどはありません</p></li>
+</ul>
+<div class="toctree-wrapper compound" id="mastertoc">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing/index.html">インストール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing/debian9.html">Debian 9 へのインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing/centos7.html">CentOS 7.x へのインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing/docker.html">Dockerを用いたインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing/hostingmode.html">Hosting Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/index.html">設定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/ldap.html">LDAPの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/apache.html">Apacheの設定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application/index.html">Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application/encryption.html">暗号化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/encryption.html#diagrams">Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/security.html">セキュリティー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/authentication.html">Authentication(認証)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/authorization.html">Authorization(認可)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/permissions.html">Permissions(権限)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/searching.html">アカウント検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/features.html">Features(機能)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application/backup.html">バックアップ手順</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="updating/index.html">アップデート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="updating/strategies.html">方針</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updating/v2_1.html">2.1 Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updating/v3.html">3.0 Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updating/v3.1.html">3.1 Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howtos/index.html">HOWTOs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howtos/upgrade.html">sysPassのアップデートをテストする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtos/restore.html">sysPassをバックアップからリストアする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtos/azure_mysql.html">Azure MySQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtos/nginx.html">Nginxを用いてsysPassを構築する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtos/ldap_troubleshooting.html">LDAPのトラブルシューティング</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirve-syspass">sysPassとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#donde-se-puede-instalar-syspass">sysPassをインストールするには何が必要ですか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#como-se-instala-syspass">sysPassのインストール方法は？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#que-metodos-de-autentificacion-utiliza">認証方式には何を利用できますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirve-la-encriptacion">暗号化とはなんですか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#que-quiere-decir-portable">ポータブルとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#hay-una-clave-maestra-por-cada-cuenta-usuario">マスターパスワードはユーザー(アカウント)ごとに違うものが必要ですか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#que-son-los-enlaces-a-wiki">Wikiのリンクはどのように決定されますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirven-las-categorias">カテゴリーとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirven-los-grupos-de-usuarios">グループとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirve-el-campo-cliente">カスタマーフィールドとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#existe-un-historico-de-cuentas">アカウントの変更履歴を保持していますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#para-que-sirven-los-perfiles">プロファイルとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#que-es-el-modo-mantenimiento">メンテナンスモードとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#puedo-cambiar-la-clave-maestra">マスターパスワードを変更することはできますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#no-recuerdo-la-clave-maestra-puedo-desencriptar-las-claves">マスターパスワードを忘れました、再発行することはできますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#funciona-el-backup-en-windows">Windows上にsysPassの環境を作っています、バックアップを取ることはできますか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#el-lenguaje-no-cambia">表示言語が変更できません</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-are-these-strange-characters-in-password-fields">パスワードを送信する時の通信に奇妙な文字列が含まれています、これはなんですか？</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installing/index.html" class="btn btn-neutral float-right" title="インストール" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        最終更新: 9月 29, 2020
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,451 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Apacheの設定 &mdash; sysPass 3.1.2 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="Application" href="../application/index.html" />
+    <link rel="prev" title="LDAPの設定" href="ldap.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">インストール</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">設定</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ldap.html">LDAPの設定</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Apacheの設定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apache-with-https">Apache with HTTPS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../application/index.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">アップデート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">設定</a> &raquo;</li>
+        
+      <li>Apacheの設定</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/configuration/apache.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="apache-configuration">
+<h1>Apacheの設定<a class="headerlink" href="#apache-configuration" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Apacheを用いてsysPassを運用している場合は、このセクションがセキュリティーの強化のヒントになります。</p>
+<div class="section" id="apache-with-https">
+<h2>Apache with HTTPS<a class="headerlink" href="#apache-with-https" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以下のコードは暗号化されていないHTTP通信を暗号化されているHTTPS通信にリダイレクトする設定です。</p>
+<p>次のモジュールを有効化しておく必要があります</p>
+<ul class="simple">
+<li><p>ssl</p></li>
+<li><p>rewrite</p></li>
+</ul>
+<p>以下の二箇所はお使いの環境に合わせて修正してください</p>
+<ul class="simple">
+<li><p>“/your/syspass/root/directory”: sysPassがインストールされてるパス (例. “”/var/www/sysPass”)</p></li>
+<li><p>“www.example.com”: sysPassを運用しているドメイン名</p></li>
+</ul>
+<div class="highlight-Apache notranslate"><div class="highlight"><pre><span></span><span class="c">#</span>
+<span class="c"># File: syspass.conf</span>
+<span class="c">#</span>
+
+<span class="nb">RedirectMatch</span> <span class="s2">&quot;^/$&quot;</span> <span class="s2">&quot;/index.php&quot;</span>
+
+<span class="nt">&lt;Directory</span> <span class="s">&quot;/your/syspass/root/directory&quot;</span><span class="nt">&gt;</span>
+    <span class="nb">DirectoryIndex</span> index.php
+    <span class="nb">Options</span> -Indexes -FollowSymLinks -Includes -ExecCGI
+
+    <span class="nt">&lt;RequireAny&gt;</span>
+      <span class="nb">Require</span> expr <span class="s2">&quot;%{REQUEST_URI} =~ m#.*/index\.php(\?r=)?#&quot;</span>
+      <span class="nb">Require</span> expr <span class="s2">&quot;%{REQUEST_URI} =~ m#.*/api\.php$#&quot;</span>
+      <span class="nb">Require</span> expr <span class="s2">&quot;%{REQUEST_URI} =~ m#^/?$#&quot;</span>
+    <span class="nt">&lt;/RequireAny&gt;</span>
+<span class="nt">&lt;/Directory&gt;</span>
+
+<span class="c">#&lt;Directory ~ &quot;/your/syspass/root/directory/.*/(css|js|images|fonts)&quot;&gt;</span>
+<span class="c">#  Require all granted</span>
+<span class="c">#&lt;/Directory&gt;</span>
+
+<span class="nt">&lt;FilesMatch</span> <span class="s">&quot;.(png|jpg|js|css|ttf|otf|eot|woff|woff2|ico)$&quot;</span><span class="nt">&gt;</span>
+    <span class="nb">Require</span> <span class="k">all</span> granted
+<span class="nt">&lt;/FilesMatch&gt;</span>
+
+<span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
+  <span class="c"># the server uses to identify itself. This is used when creating</span>
+  <span class="c"># redirection URLs. In the context of virtual hosts, the ServerName</span>
+  <span class="c"># specifies what hostname must appear in the request&#39;s Host: header to</span>
+  <span class="c"># match this virtual host. For the default virtual host (this file) this</span>
+  <span class="c"># value is not decisive as it is used as a last resort host regardless.</span>
+  <span class="c"># However, you must set it for any further virtual host explicitly.</span>
+  <span class="nb">ServerName</span> www.example.com
+
+  <span class="nb">ServerAdmin</span> webmaster@localhost
+  <span class="nb">DocumentRoot</span> <span class="sx">/your/syspass/root/directory</span>
+
+  <span class="c"># Available loglevels: trace8, ..., trace1, debug, info, notice, warn,</span>
+  <span class="c"># error, crit, alert, emerg.</span>
+  <span class="c"># It is also possible to configure the loglevel for particular</span>
+  <span class="c"># modules, e.g.</span>
+  <span class="c">#LogLevel info ssl:warn</span>
+
+  <span class="nb">ErrorLog</span> ${APACHE_LOG_DIR}/error.log
+  <span class="nb">CustomLog</span> ${APACHE_LOG_DIR}/access.log combined
+
+  <span class="nt">&lt;IfModule</span> <span class="s">mod_ssl.c</span><span class="nt">&gt;</span>
+    <span class="nb">RewriteEngine</span> <span class="k">On</span>
+    <span class="nb">RewriteCond</span> %{HTTPS} !=on
+    <span class="nb">RewriteRule</span> ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+  <span class="nt">&lt;/IfModule&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+
+<span class="nt">&lt;IfModule</span> <span class="s">mod_ssl.c</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;VirtualHost</span> <span class="s">_default_:443</span><span class="nt">&gt;</span>
+    <span class="nb">ServerName</span> www.example.com
+    <span class="nb">ServerAdmin</span> webmaster@localhost
+    <span class="nb">DocumentRoot</span> <span class="sx">/your/syspass/root/directory</span>
+
+    <span class="c"># Available loglevels: trace8, ..., trace1, debug, info, notice, warn,</span>
+    <span class="c"># error, crit, alert, emerg.</span>
+    <span class="c"># It is also possible to configure the loglevel for particular</span>
+    <span class="c"># modules, e.g.</span>
+    <span class="c">#LogLevel info ssl:warn</span>
+
+    <span class="nb">ErrorLog</span> ${APACHE_LOG_DIR}/error.log
+    <span class="nb">CustomLog</span> ${APACHE_LOG_DIR}/access.log combined
+
+    <span class="c"># For most configuration files from conf-available/, which are</span>
+    <span class="c"># enabled or disabled at a global level, it is possible to</span>
+    <span class="c"># include a line for only one particular virtual host. For example the</span>
+    <span class="c"># following line enables the CGI configuration for this host only</span>
+    <span class="c"># after it has been globally disabled with &quot;a2disconf&quot;.</span>
+    <span class="c">#Include conf-available/serve-cgi-bin.conf</span>
+
+    <span class="c">#   SSL Engine Switch:</span>
+    <span class="c">#   Enable/Disable SSL for this virtual host.</span>
+    <span class="nb">SSLEngine</span> <span class="k">on</span>
+
+    <span class="c">#   A self-signed (snakeoil) certificate can be created by installing</span>
+    <span class="c">#   the ssl-cert package. See</span>
+    <span class="c">#   /usr/share/doc/apache2/README.Debian.gz for more info.</span>
+    <span class="c">#   If both key and certificate are stored in the same file, only the</span>
+    <span class="c">#   SSLCertificateFile directive is needed.</span>
+    <span class="nb">SSLCertificateFile</span>        <span class="sx">/etc/ssl/certs/ssl-cert-snakeoil.pem</span>
+    <span class="nb">SSLCertificateKeyFile</span> <span class="sx">/etc/ssl/private/ssl-cert-snakeoil.key</span>
+
+    <span class="c">#   Server Certificate Chain:</span>
+    <span class="c">#   Point SSLCertificateChainFile at a file containing the</span>
+    <span class="c">#   concatenation of PEM encoded CA certificates which form the</span>
+    <span class="c">#   certificate chain for the server certificate. Alternatively</span>
+    <span class="c">#   the referenced file can be the same as SSLCertificateFile</span>
+    <span class="c">#   when the CA certificates are directly appended to the server</span>
+    <span class="c">#   certificate for convinience.</span>
+    <span class="c">#SSLCertificateChainFile /etc/apache2/ssl.crt/server-ca.crt</span>
+
+    <span class="c">#   Certificate Authority (CA):</span>
+    <span class="c">#   Set the CA certificate verification path where to find CA</span>
+    <span class="c">#   certificates for client authentication or alternatively one</span>
+    <span class="c">#   huge file containing all of them (file must be PEM encoded)</span>
+    <span class="c">#   Note: Inside SSLCACertificatePath you need hash symlinks</span>
+    <span class="c">#          to point to the certificate files. Use the provided</span>
+    <span class="c">#          Makefile to update the hash symlinks after changes.</span>
+    <span class="c">#SSLCACertificatePath /etc/ssl/certs/</span>
+    <span class="c">#SSLCACertificateFile /etc/apache2/ssl.crt/ca-bundle.crt</span>
+
+    <span class="c">#   Certificate Revocation Lists (CRL):</span>
+    <span class="c">#   Set the CA revocation path where to find CA CRLs for client</span>
+    <span class="c">#   authentication or alternatively one huge file containing all</span>
+    <span class="c">#   of them (file must be PEM encoded)</span>
+    <span class="c">#   Note: Inside SSLCARevocationPath you need hash symlinks</span>
+    <span class="c">#          to point to the certificate files. Use the provided</span>
+    <span class="c">#          Makefile to update the hash symlinks after changes.</span>
+    <span class="c">#SSLCARevocationPath /etc/apache2/ssl.crl/</span>
+    <span class="c">#SSLCARevocationFile /etc/apache2/ssl.crl/ca-bundle.crl</span>
+
+    <span class="c">#   Client Authentication (Type):</span>
+    <span class="c">#   Client certificate verification type and depth.  Types are</span>
+    <span class="c">#   none, optional, require and optional_no_ca.  Depth is a</span>
+    <span class="c">#   number which specifies how deeply to verify the certificate</span>
+    <span class="c">#   issuer chain before deciding the certificate is not valid.</span>
+    <span class="c">#SSLVerifyClient require</span>
+    <span class="c">#SSLVerifyDepth  10</span>
+
+    <span class="c">#   SSL Engine Options:</span>
+    <span class="c">#   Set various options for the SSL engine.</span>
+    <span class="c">#   o FakeBasicAuth:</span>
+    <span class="c">#  Translate the client X.509 into a Basic Authorisation.  This means that</span>
+    <span class="c">#  the standard Auth/DBMAuth methods can be used for access control.  The</span>
+    <span class="c">#  user name is the `one line&#39; version of the client&#39;s X.509 certificate.</span>
+    <span class="c">#  Note that no password is obtained from the user. Every entry in the user</span>
+    <span class="c">#  file needs this password: `xxj31ZMTZzkVA&#39;.</span>
+    <span class="c">#   o ExportCertData:</span>
+    <span class="c">#  This exports two additional environment variables: SSL_CLIENT_CERT and</span>
+    <span class="c">#  SSL_SERVER_CERT. These contain the PEM-encoded certificates of the</span>
+    <span class="c">#  server (always existing) and the client (only existing when client</span>
+    <span class="c">#  authentication is used). This can be used to import the certificates</span>
+    <span class="c">#  into CGI scripts.</span>
+    <span class="c">#   o StdEnvVars:</span>
+    <span class="c">#  This exports the standard SSL/TLS related `SSL_*&#39; environment variables.</span>
+    <span class="c">#  Per default this exportation is switched off for performance reasons,</span>
+    <span class="c">#  because the extraction step is an expensive operation and is usually</span>
+    <span class="c">#  useless for serving static content. So one usually enables the</span>
+    <span class="c">#  exportation for CGI and SSI requests only.</span>
+    <span class="c">#   o OptRenegotiate:</span>
+    <span class="c">#  This enables optimized SSL connection renegotiation handling when SSL</span>
+    <span class="c">#  directives are used in per-directory context.</span>
+    <span class="c">#SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire</span>
+    <span class="nt">&lt;FilesMatch</span> <span class="s">&quot;\.(cgi|shtml|phtml|php)$&quot;</span><span class="nt">&gt;</span>
+              <span class="nb">SSLOptions</span> +StdEnvVars
+    <span class="nt">&lt;/FilesMatch&gt;</span>
+    <span class="nt">&lt;Directory</span> <span class="s">/usr/lib/cgi-bin</span><span class="nt">&gt;</span>
+              <span class="nb">SSLOptions</span> +StdEnvVars
+    <span class="nt">&lt;/Directory&gt;</span>
+
+    <span class="c">#   SSL Protocol Adjustments:</span>
+    <span class="c">#   The safe and default but still SSL/TLS standard compliant shutdown</span>
+    <span class="c">#   approach is that mod_ssl sends the close notify alert but doesn&#39;t wait for</span>
+    <span class="c">#   the close notify alert from client. When you need a different shutdown</span>
+    <span class="c">#   approach you can use one of the following variables:</span>
+    <span class="c">#   o ssl-unclean-shutdown:</span>
+    <span class="c">#  This forces an unclean shutdown when the connection is closed, i.e. no</span>
+    <span class="c">#  SSL close notify alert is send or allowed to received.  This violates</span>
+    <span class="c">#  the SSL/TLS standard but is needed for some brain-dead browsers. Use</span>
+    <span class="c">#  this when you receive I/O errors because of the standard approach where</span>
+    <span class="c">#  mod_ssl sends the close notify alert.</span>
+    <span class="c">#   o ssl-accurate-shutdown:</span>
+    <span class="c">#  This forces an accurate shutdown when the connection is closed, i.e. a</span>
+    <span class="c">#  SSL close notify alert is send and mod_ssl waits for the close notify</span>
+    <span class="c">#  alert of the client. This is 100% SSL/TLS standard compliant, but in</span>
+    <span class="c">#  practice often causes hanging connections with brain-dead browsers. Use</span>
+    <span class="c">#  this only for browsers where you know that their SSL implementation</span>
+    <span class="c">#  works correctly.</span>
+    <span class="c">#   Notice: Most problems of broken clients are also related to the HTTP</span>
+    <span class="c">#   keep-alive facility, so you usually additionally want to disable</span>
+    <span class="c">#   keep-alive for those clients, too. Use variable &quot;nokeepalive&quot; for this.</span>
+    <span class="c">#   Similarly, one has to force some clients to use HTTP/1.0 to workaround</span>
+    <span class="c">#   their broken HTTP/1.1 implementation. Use variables &quot;downgrade-1.0&quot; and</span>
+    <span class="c">#   &quot;force-response-1.0&quot; for this.</span>
+    <span class="nb">BrowserMatch</span> <span class="s2">&quot;MSIE [2-6]&quot;</span> \
+      nokeepalive ssl-unclean-shutdown \
+      downgrade-1.0 force-response-1.0
+    <span class="c"># MSIE 7 and newer should be able to use keepalive</span>
+    <span class="nb">BrowserMatch</span> <span class="s2">&quot;MSIE [17-9]&quot;</span> ssl-unclean-shutdown
+  <span class="nt">&lt;/VirtualHost&gt;</span>
+<span class="nt">&lt;/IfModule&gt;</span>
+</pre></div>
+</div>
+<p>最後の手順はこのコードを“/etc/apache2/sites-available”に配置して以下のコマンドを実行することです</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo a2ensite syspass.conf
+$ sudo apache2 restart
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>お使いのApacheサーバでsysPass以外のサービスを運用している場合は設定を上書きしないように注意してください</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../application/index.html" class="btn btn-neutral float-right" title="Application" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ldap.html" class="btn btn-neutral float-left" title="LDAPの設定" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        最終更新: 9月 29, 2020
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

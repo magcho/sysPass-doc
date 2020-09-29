@@ -1,0 +1,302 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>セキュリティー &mdash; sysPass 3.1.2 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="Authentication(認証)" href="authentication.html" />
+    <link rel="prev" title="暗号化" href="encryption.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">設定</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Application</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">暗号化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#diagrams">Diagrams</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">セキュリティー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication(認証)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html">Authorization(認可)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permissions(権限)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html">アカウント検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Features(機能)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup.html">バックアップ手順</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../updating/index.html">アップデート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Application</a> &raquo;</li>
+        
+      <li>セキュリティー</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/application/security.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="security">
+<h1>セキュリティー<a class="headerlink" href="#security" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>sysPassにはセキュリティーを向上させる様々な工夫があります。しかし、sysPassの環境によってはセキュリティーを弱くしてしまう可能性があります。ここではセキュリティの問題点とその対策を示します</p>
+<ul class="simple">
+<li><p>ブラウザからサーバへ送信するformにtokenを埋め込みます</p></li>
+<li><p>想定外のデータを受け取った場合はそれを処理せず破棄します</p></li>
+<li><p>サーバで受信したデータはキャストして利用します</p></li>
+<li><p>バックアップ用に生成したファイル名には予測困難なハッシュを含ませています</p></li>
+<li><p>ブラウザから送信するパスワードはブラウザでRSA(PKI)で暗号化されたのちに送信されています</p></li>
+</ul>
+<p>上記のようなセキュリティーを向上させる機能を持ち合わせていてもセキュリティーリスクはゼロにはなりません。以下の対策を行うことでより安全に運用することができるようになります。</p>
+<ul class="simple">
+<li><p>HTTPSを利用する</p></li>
+<li><p>'.../app/config' と '.../app/backup' ディレクトリへのアクセスを制限する</p></li>
+<li><p>webサーバへのアクセスポリシーを強化する</p></li>
+</ul>
+<p>ディレクトリーへのアクセス制限を行う例を示します。Apacheを使っているのであれば ‘.htaccess’ファイルに以下の内容を書き込むことでディレクトリーへのアクセス制限を行うことができます。</p>
+<div class="highlight-Apache notranslate"><div class="highlight"><pre><span></span><span class="c"># Apache 2.4 (after 2.4.16)</span>
+<span class="nt">&lt;Directory</span> <span class="s">&quot;/var/www/html/sysPass&quot;</span><span class="nt">&gt;</span>
+  <span class="nb">Options</span> -Indexes -FollowSymLinks -Includes -ExecCGI
+  <span class="nt">&lt;RequireAny&gt;</span>
+      <span class="nb">Require</span> expr <span class="s2">&quot;%{REQUEST_URI} =~ m#.*/index\.php(\?r=)?#&quot;</span>
+      <span class="nb">Require</span> expr <span class="s2">&quot;%{REQUEST_URI} =~ m#.*/api\.php$#&quot;</span>
+      <span class="nb">Require</span> expr <span class="s2">&quot;%{REQUEST_URI} =~ m#^/?$#&quot;</span>
+  <span class="nt">&lt;/RequireAny&gt;</span>
+<span class="nt">&lt;/Directory&gt;</span>
+
+<span class="nt">&lt;Directory</span> <span class="s">&quot;/var/www/html/sysPass/public&quot;</span><span class="nt">&gt;</span>
+  <span class="nb">Require</span> <span class="k">all</span> granted
+<span class="nt">&lt;/Directory&gt;</span>
+
+<span class="nt">&lt;FilesMatch</span> <span class="s">&quot;\.(png|jpg|js|css|ttf|otf|eot|woff|woff2|ico)$&quot;</span><span class="nt">&gt;</span>
+  <span class="nb">Require</span> <span class="k">all</span> granted
+<span class="nt">&lt;/FilesMatch&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-Apache notranslate"><div class="highlight"><pre><span></span><span class="c"># Apache 2.4 (before 2.4.16)</span>
+<span class="nt">&lt;Directory</span> <span class="s">&quot;/var/www/html/sysPass&quot;</span><span class="nt">&gt;</span>
+  <span class="nb">Options</span> -Indexes -FollowSymLinks -Includes -ExecCGI
+  <span class="nt">&lt;RequireAny&gt;</span>
+      <span class="nb">Require</span> expr %{REQUEST_URI} =~ m#.*/index\.php(\?r=)?#
+      <span class="nb">Require</span> expr %{REQUEST_URI} =~ m#.*/api\.php$#
+      <span class="nb">Require</span> expr %{REQUEST_URI} =~ m#^/?$#
+  <span class="nt">&lt;/RequireAny&gt;</span>
+<span class="nt">&lt;/Directory&gt;</span>
+
+<span class="nt">&lt;Directory</span> <span class="s">&quot;/var/www/html/sysPass/public&quot;</span><span class="nt">&gt;</span>
+  <span class="nb">Require</span> <span class="k">all</span> granted
+<span class="nt">&lt;/Directory&gt;</span>
+
+<span class="nt">&lt;FilesMatch</span> <span class="s">&quot;\.(png|jpg|js|css|ttf|otf|eot|woff|woff2|ico)$&quot;</span><span class="nt">&gt;</span>
+  <span class="nb">Require</span> <span class="k">all</span> granted
+<span class="nt">&lt;/FilesMatch&gt;</span>
+</pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">危険</p>
+<p>'.../app/config' ディレクトリの中身は絶対に外部からアクセスできないように設定する必要があります。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="authentication.html" class="btn btn-neutral float-right" title="Authentication(認証)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="encryption.html" class="btn btn-neutral float-left" title="暗号化" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        最終更新: 9月 29, 2020
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

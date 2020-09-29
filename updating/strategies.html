@@ -1,0 +1,292 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>方針 &mdash; sysPass 3.1.2 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="2.1 Version" href="v2_1.html" />
+    <link rel="prev" title="アップデート" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> sysPass
+          
+
+          
+            
+            <img src="../_static/logo_icon_24_nobg.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/index.html">Application</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">アップデート</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">方針</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#normal">Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="v2_1.html">2.1 Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v3.html">3.0 Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v3.1.html">3.1 Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/index.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysPass</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">アップデート</a> &raquo;</li>
+        
+      <li>方針</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/updating/strategies.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="strategies">
+<h1>方針<a class="headerlink" href="#strategies" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>sysPassにはwebアプリによくある**自己アップデート機能はありません**。これはsysPass自体がGitなどのバージョン管理ツールを用いて管理・更新されることを想定しているためです。自己アップデート時にありがちな前のバージョンのファイルがアップデートで上書きされて消えてしまう心配がありません。そういった場合でもGitなどには強力なマージツールがあるので安心してsysPassのアップデートを行うことができます。</p>
+<p>また、よく聞かれる質問ですが。<a class="reference external" href="https://docs.docker.com/engine/installation/">Docker</a> or <a class="reference external" href="https://kubernetes.io/">Kubernetes</a> を用いて構成している場合はどのようにアップデートを行うのか。これらについてもsshなどで接続してGitコマンドを用いてアップデートを行うこともできますがコンテナの再現性を損ねてしまいます。</p>
+<p>昨今のコンテナ技術を考えるとsysPassイメージのタグを変更してアップデートする方法が一般的です。<a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a> や <a class="reference external" href="https://helm.sh/">Helm</a> を用いることで簡単にこの操作を行うことができます。</p>
+<div class="section" id="normal">
+<h2>Normal<a class="headerlink" href="#normal" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アップデートの詳細はリリースノートを参照してください</p>
+</div>
+<div class="section" id="id1">
+<h2>Git<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://git-scm.com/">Git</a> を用いてsysPassをインストールした場合は以下のようなコマンドを実行したはずです</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/nuxsmin/sysPass.git
+</pre></div>
+</div>
+<p><a class="reference external" href="https://git-scm.com/">Git</a> コマンドでクローンしたsysPassディレクトリ内で以下のコマンドを実行するとsysPassが最新のものにアップデートされます</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Github上の “master” ブランチは常に最新のstableバージョンになっています</p>
+</div>
+<p>アップデートに伴いDBに変更が必要な場合はブラウザでsysPassにアクセスするとその旨が表示されます。具体的な手順についてはその表示に従ってください</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>アップデートする前に”mysqldump” や “tar” などのコマンドを利用するなどして、sysPassディレクトリ全体とデータベース全体のバックアップをしてください</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Docker<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="../installing/docker.html#id2"><span class="std std-ref">Docker Compose</span></a> を用いて運用している場合のアップデートは簡単です。デフォルトのdocker-compose.ymlを利用している場合は起動時に常に最新のsysPassが使用されます。docker-compose.ymlを自分で書き換えている場合はtagを更新するだけでsysPassのアップデートができます。</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">app</span><span class="p">:</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">syspass-app</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">syspass/syspass:3.1.0</span> <span class="c1"># Set this version tag to desired one</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+<span class="nn">...</span>
+</pre></div>
+</div>
+<p>tagを変更した後に以下のコマンドを実行すると最新のsysPassがダウンロードされ、自動で起動します</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose -p syspass -f docker-compose.yml up -d
+</pre></div>
+</div>
+<p>アップデートに伴いDBに変更が必要な場合はブラウザでsysPassにアクセスするとその旨が表示されます。具体的な手順についてはその表示に従ってください</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>アップデートする前にsysPassディレクトリ全体とデータベース全体のバックアップ <a class="reference internal" href="../application/backup.html"><span class="doc">バックアップ手順</span></a> をしてください</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="v2_1.html" class="btn btn-neutral float-right" title="2.1 Version" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="アップデート" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2010-2020, Rubén Domínguez &lt;nuxsmin _at_ syspass _dot_ org&gt;
+      <span class="lastupdated">
+        最終更新: 9月 20, 2020
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
